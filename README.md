@@ -17,7 +17,8 @@ npm start
 open browser at: <br />
 http://localhost:8000/
 
-<br />
+
+
 ![Alt text](/app/screenshots/screen1.jpg?raw=true "Restaurant list")   
 
 
