@@ -1,7 +1,5 @@
 # Mobile Web Specialist Certification Course
 
-![Alt text](/screenshots/screen1.jpg?raw=true "Restaurant list")   
-![Alt text](/screenshots/screen1.jpg?raw=true "Restaurant details")
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
