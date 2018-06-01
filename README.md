@@ -1,8 +1,12 @@
 
+# Restaurant reviews 
+
 ## To run 
 
-cd restaurants /n \n
+cd restaurants 
+
 npm i
+
 
 cd server
 
