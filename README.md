@@ -7,7 +7,7 @@ npm i
 cd server
 npm i
 
-cd ..      (going back to 'restaurants' directory)
+cd ..       (going back to 'restaurants' directory)
 npm start
 
 open browser at:
