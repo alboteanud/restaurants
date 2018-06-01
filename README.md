@@ -2,9 +2,11 @@
 ## To run 
 
 cd restaurants
+
 npm i
 
 cd server
+
 npm i
 
 cd ..       (going back to 'restaurants' directory)
