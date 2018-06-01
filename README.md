@@ -1,5 +1,4 @@
-# Restaurant reviews app
-
+# Restaurant reviews Web app
 
 
 ## To run 
