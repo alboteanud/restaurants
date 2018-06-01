@@ -3,16 +3,16 @@
 
 ## To run 
 
-cd restaurants
+cd restaurants <br />
 npm i
 
-cd server
-npm i
+cd server <br />
+npm i <br />
 
-cd ..      (going back to 'restaurants' directory)
+cd ..      (going back to 'restaurants' directory)<br />
 npm start
 
-open browser at:
+open browser at:<br />
 http://localhost:8000/
 
 
