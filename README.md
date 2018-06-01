@@ -9,8 +9,7 @@ npm i <br />
 cd server <br />
 npm i <br />
 
-cd ..    <br />  
-(we are back into 'restaurants' directory) <br />
+cd ..     (we are back into 'restaurants' directory) 
 
 npm start
 
