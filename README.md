@@ -1,8 +1,7 @@
 
 ## To run 
 
-cd restaurants
-
+cd restaurants /n \n
 npm i
 
 cd server
@@ -10,6 +9,7 @@ cd server
 npm i
 
 cd ..       (going back to 'restaurants' directory)
+
 npm start
 
 open browser at:
