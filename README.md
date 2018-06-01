@@ -18,6 +18,9 @@ open browser at:<br />
 http://localhost:8000/
 
 
+![Alt text](/app/screenshots/screen1.jpg?raw=true "Restaurant list")   
+
+
 
 
 
