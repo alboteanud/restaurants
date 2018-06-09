@@ -125,7 +125,7 @@ createRestaurantHTML = (restaurant) => {
   
   const sourceWebp = document.createElement('source');
   sourceWebp.type = "image/webp";
-  sourceWebp.setAttribute("data-srcset", DBHelper.imageUrlForRestaurant(restaurant, "webp"));
+  sourceWebp.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant, "webp"));
   sourceWebp.setAttribute('class', 'lazyload');
   // sourceWebp.className = 'restaurant-img';
   sourceWebp.setAttribute("width", "100%");
@@ -134,13 +134,13 @@ createRestaurantHTML = (restaurant) => {
   
   const source = document.createElement('source');
   source.media = "(min-width: 500px)";
-  source.setAttribute("data-srcset", DBHelper.imageUrlForRestaurant(restaurant, "full"));
+  source.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant, "full"));
   source.setAttribute("alt", "restaurant " + restaurant.name);
   source.className = 'lazyload';
   source.setAttribute("width", "100%");
   
   const image_low = document.createElement('img');
-  image_low.setAttribute("data-src", DBHelper.imageUrlForRestaurant(restaurant, "500"));
+  image_low.setAttribute("data-src", DBHelper.getImageUrlForRestaurant(restaurant, "500"));
   image_low.alt = "restaurant " + restaurant.name;
   image_low.className = 'lazyload';
   image_low.setAttribute("width", "100%");
@@ -167,7 +167,7 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'More about ' + restaurant.name;
   // more.label = restaurant.name;
-  more.href = DBHelper.urlForRestaurant(restaurant);
+  more.href = DBHelper.buildUrlForRestaurant(restaurant);
   li.append(more);
   
   return li;
@@ -211,10 +211,4 @@ window.addEventListener('beforeinstallprompt', (e) => {
   });
   
 });
-
-// var btn = document.getElementById('btn-test');
-// var event = new Event(null);
-// event.initEvent('beforeinstallprompt', true, true);
-// btn.addEventListener('beforeinstallprompt', null, false);
-// btn.dispatchEvent(event);
 

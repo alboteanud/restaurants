@@ -1,5 +1,6 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
 
+
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
 
@@ -45,7 +46,7 @@ if (workbox) {
   },
   {
     "url": "css/detail.css",
-    "revision": "4d5cf368351d0bbe11a38b5d6aa5bbfe"
+    "revision": "5713fd44d58910dfab5052bca281f7cb"
   },
   {
     "url": "css/main_620.css",
@@ -65,7 +66,7 @@ if (workbox) {
   },
   {
     "url": "js/dbhelper.js",
-    "revision": "7b2f9be4b878f9ed1feb27f8ca9daabb"
+    "revision": "2ac5493bef9d9baae77880e9c0c1a0c8"
   },
   {
     "url": "js/idb-promised.js",
@@ -81,11 +82,11 @@ if (workbox) {
   },
   {
     "url": "js/main.js",
-    "revision": "2bf078adaaa745f6fa3f3533404a0ed0"
+    "revision": "fc9231b8d6e49a32cd3d68401afb4dff"
   },
   {
     "url": "js/restaurant_info.js",
-    "revision": "78499450d534da6a3c9ed749f2d3181c"
+    "revision": "d295389b1851d06d23e0b347f1179f8d"
   },
   {
     "url": "manifest.json",
@@ -97,7 +98,7 @@ if (workbox) {
   },
   {
     "url": "restaurant.html",
-    "revision": "7bdfd0047dfb497ee70d70d8b3247ded"
+    "revision": "3710a001780dbfda60d89773187361e1"
   },
   {
     "url": "img/1-500.jpg",
@@ -258,4 +259,6 @@ if (workbox) {
 }
 
 else { console.log(`Boo! Workbox didn't load 😬`); }
+
+
 

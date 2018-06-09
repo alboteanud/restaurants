@@ -45,17 +45,17 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   
   const sourceWebp = document.createElement('source');
   sourceWebp.type = "image/webp";
-  sourceWebp.srcset = DBHelper.imageUrlForRestaurant(restaurant, "webp");
+  sourceWebp.srcset = DBHelper.getImageUrlForRestaurant(restaurant, "webp");
   sourceWebp.media = "(min-width: 500px)";
   sourceWebp.setAttribute("alt", "restaurant " + restaurant.name);
   
   const source = document.createElement('source');
   source.media = "(min-width: 500px)";
-  source.srcset = DBHelper.imageUrlForRestaurant(restaurant, "full");
+  source.srcset = DBHelper.getImageUrlForRestaurant(restaurant, "full");
   
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant, "500");
+  image.src = DBHelper.getImageUrlForRestaurant(restaurant, "500");
   image.alt = "restaurant " + restaurant.name;
   
   const picture = document.getElementById('restaurant-pic');
@@ -65,10 +65,24 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-  
-  if (restaurant.operating_hours) {fillRestaurantHoursHTML();}
-  
+
   fetchReviews(restaurant.id);
+  
+  if (restaurant.is_favorite === 'true') {
+    document.getElementById("input-fav").checked = true;
+  } else {
+    document.getElementById("input-fav").checked = false;
+  }
+ var n=1;
+}
+
+window.onload = () => {
+  if (self.restaurant && self.restaurant.is_favorite === 'true') {
+    document.getElementById("input-fav").checked = true;
+  } else {
+    document.getElementById("input-fav").checked = false;
+  }
+  var n=1;
 }
 
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
@@ -88,13 +102,16 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   }
 }
 
+// http://localhost:1337/reviews/?restaurant_id=<restaurant_id>
 fetchReviews = (id) => {
-  DBHelper.fetchReviewsByRestaurantId(id, (error, reviews) => {
-    if (!reviews) {
+  // DBHelper.fetchAndStore(DBHelper.OBJ_ST_REVIEWS, `/reviews/?restaurant_id=` + id, (error, jsonResponse) => {
+  DBHelper.fetchReviewsData(id, (error, jsonResponse) => {
+    if (!jsonResponse) {
       console.error(error);
       return;
     }
-    fillReviewsHTML(reviews);
+    // DBHelper.addToDB(reviews, DBHelper.DATABASE_OBJECT_STORE_REVIEWS);
+    fillReviewsHTML(jsonResponse);
   });
 }
 
@@ -155,7 +172,7 @@ createReviewHTML = (review) => {
   trashIcon.className = 'fa fa-trash';
   btnDel.addEventListener("click", () => {
     if (confirm("Want to delete?")) {
-      fetch('http://localhost:1337/reviews/' + review.id, {method: 'DELETE'});
+      fetch(DBHelper.URL_SERVER + '/reviews/' + review.id, {method: 'DELETE'});
       li.parentNode.removeChild(li);
     }
   });
@@ -202,7 +219,7 @@ addAndPostEvent = (e) => {
   e.preventDefault();
   
   const reviewData = {
-    restaurant_id: getParameterByName('id'),
+    restaurant_id: restaurant.id,
     name: capitalizeFirstLetter(googleUser.getBasicProfile().getGivenName()) ,
     email: googleUser.getBasicProfile().getEmail(),
     rating: document.getElementById("myForm").elements.namedItem("rating-input-1").value,
@@ -214,7 +231,7 @@ addAndPostEvent = (e) => {
   DBHelper.addToDB(reviewData, DBHelper.DATABASE_OBJECT_STORE_REVIEWS);
   const headers = new Headers({'Content-Type': 'application/json'});
   const body = JSON.stringify(reviewData);
-  return fetch('http://localhost:1337/reviews/', {method: 'POST', headers: headers, body: body});
+  return fetch(DBHelper.URL_SERVER + '/reviews/', {method: 'POST', headers: headers, body: body});
 }
 
 updateUI = (review) => {
@@ -253,7 +270,7 @@ signinChanged = (val) => {  // val = true/false
     var postButton = document.getElementById('add-review-button');
     postButton.style.display = 'block';
     postButton.addEventListener('click', addAndPostEvent);
-
+    
     document.getElementById('sign-out-button').style.display = 'block';
     document.getElementById('sign-in-google').style.display = 'none';
   } 
@@ -306,4 +323,13 @@ refreshValues = () => {
 
 capitalizeFirstLetter = (targetString) => {
   return targetString.charAt(0).toUpperCase() + targetString.slice(1);
+}
+
+
+// PUT http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=true
+setFavorite = () => {
+  const checkBox = document.getElementById("input-fav");
+  const url = DBHelper.URL_SERVER + "/restaurants/" + restaurant.id + "/?is_favorite=" + checkBox.checked;
+  return fetch(url, {method: 'PUT'})
+  // TODO create user_data in server rather than saving in restaurants
 }

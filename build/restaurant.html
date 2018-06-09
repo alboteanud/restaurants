@@ -38,90 +38,91 @@
     <section id="restaurant-container">
       <div class="contained_restaurant_name">
         <h2 id="restaurant-name" tabindex="0"></h2>
-    </div>    
-    
-    <picture id="restaurant-pic" tabindex="0"></picture>
-    <p id="restaurant-cuisine" tabindex="0"></p>
-    <div class="contained_table_restaurant_hours">
-      <table id="restaurant-hours" tabindex="0"></table>
-    </div>
-    <p id="restaurant-address" tabindex="0"></p>
-  </section>
-  
-  <section id="reviews-container">
-
-      <span id="container-fav" aria-label="make my favorite">     
-          <input type="checkbox"  id="input-fav">
-          <label for="input-fav" class="label-fav fa fa-star"></label>
-      </span>
-    
-    <div class="form-section">
+      </div>    
       
-      <div class="card">
-        <div class="card-title">
-          <h2 id="new-review-title">Add your review</h2>
-        </div>
-        <div class="support-text">
-          <form action="#" method="post" id="myForm">
+      <picture id="restaurant-pic" tabindex="0"></picture>
+      <p id="restaurant-cuisine" tabindex="0"></p>
+      <div class="contained_table_restaurant_hours">
+        <table id="restaurant-hours" tabindex="0"></table>
+      </div>
+      <p id="restaurant-address" tabindex="0"></p>
+    </section>
+    
+    <section id="reviews-container">
+      
+      <div class="form-section">
+        
+        <div class="card">
+          <div class="card-title">
+            <h2 id="new-review-title">Add your review</h2>
+          </div>
+          <div class="support-text">
+            <form action="#" method="post" id="myForm">
+              
+              <div> 
+                <span class="container-rating" aria-label="rate the restaurant">
+                  
+                  <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1" value="5" aria-label="review star 5">
+                  <label for="rating-input-1-5" class="rating-label fa fa-star"></label>
+                  
+                  <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1" value="4" aria-label="review star 4">
+                  <label for="rating-input-1-4" class="rating-label fa fa-star"></label>
+                  
+                  <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1" value="3" aria-label="review star 3">
+                  <label for="rating-input-1-3" class="rating-label fa fa-star"></label>
+                  
+                  <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1" value="2" aria-label="review star 2">
+                  <label for="rating-input-1-2" class="rating-label fa fa-star"></label>
+                  
+                  <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1" value="1" aria-label="review star 1">
+                  <label for="rating-input-1-1" class="rating-label fa fa-star"></label>
+                  
+                </span>
+              </div>
+              
+              <div class="textfield">
+                <input id="comment" name="comment" placeholder="Add your comment..." aria-label="comment on restaurant"/>
+              </div>
+              <div class="card-action">
+                <button id="add-review-button" type="submit" class="raised button ripple" style="display:none">Post</button>
+              </div>
+              <div id="sign-in-google"></div>
+            </form>  
+            <a href="#" onclick="signOut();" id="sign-out-button" style="margin-right:8px; display:none;" align="right">Sign out</a>
             
-            <div> 
-              <span class="container-rating" aria-label="rate the restaurant">
-                
-                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1" value="5" aria-label="review star 5">
-                <label for="rating-input-1-5" class="rating-label fa fa-star"></label>
-                
-                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1" value="4" aria-label="review star 4">
-                <label for="rating-input-1-4" class="rating-label fa fa-star"></label>
-                
-                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1" value="3" aria-label="review star 3">
-                <label for="rating-input-1-3" class="rating-label fa fa-star"></label>
-                
-                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1" value="2" aria-label="review star 2">
-                <label for="rating-input-1-2" class="rating-label fa fa-star"></label>
-                
-                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1" value="1" aria-label="review star 1">
-                <label for="rating-input-1-1" class="rating-label fa fa-star"></label>
-                
-              </span>
-            </div>
-            
-            <div class="textfield">
-              <input id="comment" name="comment" placeholder="Add your comment..." aria-label="comment on restaurant"/>
-            </div>
-            <div class="card-action">
-              <button id="add-review-button" type="submit" class="raised button ripple" style="display:none">Post</button>
-            </div>
-            <div id="sign-in-google"></div>
-          </form>  
-          <a href="#" onclick="signOut();" id="sign-out-button" style="margin-right:8px; display:none;" align="right">Sign out</a>
-          
+          </div>
         </div>
+        
+        
+        <span id="container-fav" aria-label="make my favorite">     
+          <input type="checkbox"  id="input-fav" onclick="setFavorite()">
+          <label for="input-fav" class="label-fav fa fa-star"> fav</label>
+        </span>
+        
       </div>
       
-    </div>
+      <ul id="reviews-list"></ul>
+      
+    </section> 
     
-    <ul id="reviews-list"></ul>
-    
-  </section> 
+  </main>
   
-</main>
-
-<footer id="footer">
-  Copyright (c) 2017
-  <a href="/">
-    <strong>Restaurant Reviews</strong>
-  </a>
-  <br> All Rights Reserved.
-</footer>
-
-<script src="js/dbhelper.js"></script>
-<script src="js/idb-promised.js"></script>
-<script src="sw.js"></script>
-<script src="js/initSW.js"></script>
-<script async defer src="js/lazysizes.min.js"></script>
-<script src="js/restaurant_info.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initMap"></script>
-<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  <footer id="footer">
+    Copyright (c) 2017
+    <a href="/">
+      <strong>Restaurant Reviews</strong>
+    </a>
+    <br> All Rights Reserved.
+  </footer>
+  
+  <script src="js/dbhelper.js"></script>
+  <script src="js/idb-promised.js"></script>
+  <script src="sw.js"></script>
+  <script src="js/initSW.js"></script>
+  <script async defer src="js/lazysizes.min.js"></script>
+  <script src="js/restaurant_info.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initMap"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 
 </html>

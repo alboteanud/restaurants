@@ -274,6 +274,7 @@ form {
   position: absolute;
   opacity: 0;
   cursor: pointer;
+  color: #ccc;
 }
 
 #input-fav:checked ~ .label-fav {

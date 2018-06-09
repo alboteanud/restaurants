@@ -2,7 +2,7 @@
   "data": {
     "restaurants": [
       {
-        "name": "Mission Chinese Food",
+        "name": "Asian Cuisine",
         "neighborhood": "Manhattan",
         "photograph": "1",
         "address": "171 E Broadway, New York, NY 10002",
@@ -21,9 +21,12 @@
           "Sunday": "12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm"
         },
         "createdAt": 1504095563444,
-        "updatedAt": "2017-09-14T14:01:27.653Z",
+        "updatedAt": "2018-06-09T10:25:53.571Z",
         "id": 1,
-        "is_favorite": false
+        "is_favorite": "true",
+        "restaurant_id": "1",
+        "rating": "5",
+        "comments": "nice _test"
       },
       {
         "name": "Emily",
@@ -45,8 +48,8 @@
           "Sunday": "12:00 pm - 3:00 pm, 5:00 pm - 11:00 pm"
         },
         "createdAt": 1504095568414,
-        "updatedAt": "2017-09-14T14:05:54.800Z",
-        "is_favorite": false,
+        "updatedAt": "2018-06-09T10:25:14.068Z",
+        "is_favorite": "true",
         "id": 2
       },
       {
@@ -69,8 +72,9 @@
           "Sunday": "11:30 am - 2:00 am"
         },
         "createdAt": 1504095571434,
-        "updatedAt": 1504095571434,
-        "id": 3
+        "updatedAt": "2018-06-09T10:25:46.151Z",
+        "id": 3,
+        "is_favorite": "true"
       },
       {
         "name": "Katz's Delicatessen",
@@ -140,8 +144,8 @@
           "Sunday": "12:00 pm - 9:00 pm"
         },
         "createdAt": 1504095567071,
-        "updatedAt": 1504095567071,
-        "is_favorite": false,
+        "updatedAt": "2018-06-09T10:26:39.549Z",
+        "is_favorite": "true",
         "id": 6
       },
       {
@@ -450,165 +454,44 @@
         "comments": "For a Michelin star restaurant, it's fairly priced and the food is fairly good. Started with a strawberry margarita which was good in flavor but not much alcohol. Had the chicken enchiladas with salsa verde and it was really good. Great balance in flavor and a good portion. Extra tasty with their hot sauces. My wife had the lamb but it was a bit too salty for our taste. Although, it was cooked very well and fell off the bone. The highlight of the night was the tres leches cake. Probably the best I've ever had to be honest. Not too sweet and very milky. Overall, one of my top 3 favorite Mexican in NY."
       },
       {
-        "id": 1526976673487,
-        "restaurant_id": "3",
-        "name": "dan",
+        "restaurant_id": "1",
+        "name": "Dan",
         "email": "alboteanud@gmail.com",
-        "createdAt": 1526976673487,
-        "updatedAt": 1526976673487,
         "rating": "5",
-        "comments": "really nice restaurant !!!"
+        "comments": "nice if you like crowded places",
+        "updatedAt": 1528275294388,
+        "createdAt": "2018-06-06T08:54:54.462Z",
+        "id": 31
       },
       {
-        "id": 1526978176489,
-        "restaurant_id": "3",
-        "name": "dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1526978176489,
-        "updatedAt": 1526978176489,
-        "rating": "32324",
-        "comments": "fwrfrf"
-      },
-      {
-        "id": 1526985004897,
-        "restaurant_id": "4",
-        "name": "dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1526985004897,
-        "updatedAt": 1526985004897,
-        "rating": "4",
-        "comments": "good food and clean restaurant. "
-      },
-      {
-        "id": 1526985140838,
-        "restaurant_id": "4",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1526985140839,
-        "updatedAt": 1526985140839,
-        "rating": "3",
-        "comments": "sdfgsg"
-      },
-      {
-        "id": 1526985634387,
-        "restaurant_id": "1",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1526985634387,
-        "updatedAt": 1526985634387,
-        "rating": "4",
-        "comments": "not bad"
-      },
-      {
-        "id": 1526997051147,
-        "restaurant_id": "6",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1526997051147,
-        "updatedAt": 1526997051147,
-        "rating": "1",
-        "comments": "efrtsrgfs"
-      },
-      {
-        "id": 1527611630476,
-        "restaurant_id": "5",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1527611630476,
-        "updatedAt": 1527611630476,
-        "rating": "",
-        "comments": ""
-      },
-      {
-        "id": 1527684621366,
         "restaurant_id": "2",
         "name": "Dan",
         "email": "alboteanud@gmail.com",
-        "createdAt": 1527684621366,
-        "updatedAt": 1527684621366,
         "rating": "5",
-        "comments": ""
-      },
-      {
-        "id": 1527686106559,
-        "restaurant_id": "2",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1527686106559,
-        "updatedAt": 1527686106559,
-        "rating": "4",
-        "comments": "nice"
-      },
-      {
-        "id": 1527686181104,
-        "restaurant_id": "2",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1527686181104,
-        "updatedAt": 1527686181104,
-        "rating": "2",
-        "comments": "fdgsdg"
-      },
-      {
-        "id": 1527686294946,
-        "restaurant_id": "2",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1527686294946,
-        "updatedAt": 1527686294946,
-        "rating": "4",
-        "comments": ""
-      },
-      {
-        "id": 1527686345237,
-        "restaurant_id": "2",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "createdAt": 1527686345237,
-        "updatedAt": 1527686345237,
-        "rating": "4",
-        "comments": "nice"
-      },
-      {
-        "{\r\n    \"restaurant_id\": <restaurant_id>,\r\n    \"name\": <reviewer_name>,\r\n    \"rating\": <rating>,\r\n    \"comments\": <comment_text>\r\n}": "",
-        "createdAt": "2018-05-31T10:42:44.798Z",
-        "updatedAt": "2018-05-31T10:42:44.798Z",
-        "id": 1527759924326
-      },
-      {
-        "{\r\n    \"restaurant_id\": 1,\r\n    \"name\": dan_test,\r\n    \"rating\": 4,\r\n    \"comments\": 'test comment'\r\n}": "",
-        "createdAt": "2018-05-31T10:49:53.873Z",
-        "updatedAt": "2018-05-31T10:49:53.873Z",
-        "id": 1527759924327
-      },
-      {
-        "restaurant_id": "1",
-        "name": "dan_test",
-        "rating": "5",
-        "comments": "nice _test",
-        "createdAt": "2018-05-31T10:56:38.156Z",
-        "updatedAt": "2018-05-31T10:56:38.156Z",
-        "id": 1527759924328
+        "comments": "big pizzas with lots of content (:",
+        "updatedAt": 1528277126370,
+        "createdAt": "2018-06-06T09:25:26.381Z",
+        "id": 33
       },
       {
         "restaurant_id": "1",
         "name": "Dan",
         "email": "alboteanud@gmail.com",
-        "rating": "3",
-        "comments": "asas",
-        "updatedAt": 1527767428110,
-        "createdAt": "2018-05-31T11:50:28.117Z",
-        "id": 1527759924334
-      },
-      {
-        "restaurant_id": "1",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "1",
+        "rating": "4",
         "comments": "",
-        "updatedAt": 1527769275739,
-        "createdAt": "2018-05-31T12:21:15.748Z",
-        "id": 1527759924335
+        "updatedAt": 1528286466857,
+        "createdAt": "2018-06-06T12:01:06.866Z",
+        "id": 35
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "4",
+        "comments": "xcvxcfvx",
+        "updatedAt": 1528534700919,
+        "createdAt": "2018-06-09T08:58:20.959Z",
+        "id": 36
       }
     ]
   },
@@ -664,7 +547,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 1527759924335
+      "id": 36
     }
   }
 }
