@@ -8,7 +8,7 @@
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   
   <link rel="preload" as="style" onload="this.rel='stylesheet'" href="css/main.css">
-  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="css/main_620.css" media="(min-width: 620px)" >
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="css/main_620.css" media="(min-width: 200px)" >
   <link rel="preload" as="style" onload="this.rel='stylesheet'"href="css/common.css">
   
   <title>Restaurant Reviews</title>
@@ -26,28 +26,31 @@
   
   <main id="maincontent" role="main">
     <button id='btn-add-to-home' style="display:none">Add to home screen</button>
-    <button id='btn-test' style="display:none">Test</button>
 
     <section id="map-container" >
-      <div id="map" class="restaurants-map" tabindex="0" role="application"  aria-label="Map with restaurants"></div>
+      <!-- <div id="map" class="restaurants-map" tabindex="0" role="application"  aria-label="Map with restaurants"></div>
+     <p></p> -->
+      <div class="static-map" tabindex="0"  aria-label="Map with restaurants"></div>
     </section>
     <section id="filters">
       <div class="filter-options">
         
         <span style="display:inline-block">
-          <label for="neighborhoods-select">Select neighborhood</label>
+          <label for="neighborhoods-select">Select neighborhood </label>
           <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
         </span>
         
         <span style="display:inline-block">
-          <label for="cuisines-select">Select cuisine</label>
+          <label for="cuisines-select">Select cuisine </label>
           <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
             <option value="all">All Cuisines</option>
           </select>
         </span>
-        
+      </section>
+
+    <section>   
       </div>
       <!-- <link rel="stylesheet" href="css/restaurant_list.css">       -->
       <ul id="restaurants-list"></ul>
@@ -61,7 +64,7 @@
   <script src="js/initSW.js"></script>
   <script async defer src="js/lazysizes.min.js"></script>
   <script src="js/main.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initMap"></script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initMap"></script>      -->
   
   
   <footer id="footer">

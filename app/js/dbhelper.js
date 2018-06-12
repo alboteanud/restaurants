@@ -57,11 +57,14 @@ static getObjStore(objName, mode) {
 }
 
 // http://localhost:1337/restaurants/<restaurant_id>
+// TODO fetch by restaurantID rather than all restaurants.
 static fetchRestaurantById(id, callback) {
-  DBHelper.fetchRestaurantData(id, (error, restaurant) => {
+  DBHelper.fetchRestaurantData("", (error, restaurants) => {
     if (error) {
       callback(error, null);
     } else {
+
+      const restaurant = restaurants.find(r => r.id == id);
       if (restaurant) { // Got the restaurant
         callback(null, restaurant);
       } else {
@@ -161,7 +164,7 @@ static mapMarkerForRestaurant(restaurant, map) {
   return marker;
 }
 
-static fetchRestaurantData(extra, callback) {
+static fetchRestaurantData(extraUrl, callback) {
   var callbackDone = false;
   
   // get from DB
@@ -176,7 +179,7 @@ static fetchRestaurantData(extra, callback) {
   });
   
   //  fetch from network
-  const url = DBHelper.URL_SERVER + "/restaurants/" + extra;
+  const url = DBHelper.URL_SERVER + "/restaurants/" + extraUrl;
   fetch(url).then(function (response) {
     if (response.status !== 200) {
       console.log('Looks like there was a problem. Status Code: ' +

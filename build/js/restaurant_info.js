@@ -66,23 +66,14 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
+
+
+  if (restaurant.operating_hours) {fillRestaurantHoursHTML();}
+  document.getElementById("input-fav").checked = (restaurant.is_favorite == 'true')
   fetchReviews(restaurant.id);
   
-  if (restaurant.is_favorite === 'true') {
-    document.getElementById("input-fav").checked = true;
-  } else {
-    document.getElementById("input-fav").checked = false;
-  }
- var n=1;
-}
-
-window.onload = () => {
-  if (self.restaurant && self.restaurant.is_favorite === 'true') {
-    document.getElementById("input-fav").checked = true;
-  } else {
-    document.getElementById("input-fav").checked = false;
-  }
-  var n=1;
+  
+  
 }
 
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {

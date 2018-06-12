@@ -46,15 +46,15 @@ if (workbox) {
   },
   {
     "url": "css/detail.css",
-    "revision": "5713fd44d58910dfab5052bca281f7cb"
+    "revision": "4ce1ee383c6a33b223ae04298433ca3c"
   },
   {
     "url": "css/main_620.css",
-    "revision": "5bd818b4fcbbfc3d0b82eaf156d5bd41"
+    "revision": "e94b9e5af83e4a91be92054f5943d2e3"
   },
   {
     "url": "css/main.css",
-    "revision": "58e175026ce67696253db6bc2c1bb090"
+    "revision": "64d3715965626c1c700002b6dc015a68"
   },
   {
     "url": "Gruntfile.js",
@@ -62,11 +62,11 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "99f910c77cbde666a3d51811d74578b6"
+    "revision": "962c8d38be8ef9cf64fd2e2232ca255f"
   },
   {
     "url": "js/dbhelper.js",
-    "revision": "2ac5493bef9d9baae77880e9c0c1a0c8"
+    "revision": "a837a1d1c47fd4b6702e20cef7aab1dd"
   },
   {
     "url": "js/idb-promised.js",
@@ -82,11 +82,11 @@ if (workbox) {
   },
   {
     "url": "js/main.js",
-    "revision": "fc9231b8d6e49a32cd3d68401afb4dff"
+    "revision": "f163f7de0d390d310feaabfcb5eca48a"
   },
   {
     "url": "js/restaurant_info.js",
-    "revision": "d295389b1851d06d23e0b347f1179f8d"
+    "revision": "418ac77506a0bea31bf2aa045c8e49df"
   },
   {
     "url": "manifest.json",
@@ -110,7 +110,7 @@ if (workbox) {
   },
   {
     "url": "img/1.webp",
-    "revision": "8558e632eb668259986a3bd7fa58bcb7"
+    "revision": "97b07fba161be4d7db193b1851e9a22f"
   },
   {
     "url": "img/10-500.jpg",
@@ -122,7 +122,7 @@ if (workbox) {
   },
   {
     "url": "img/10.webp",
-    "revision": "859dfeb93a66392b58b3d49bd1de08a3"
+    "revision": "1a1beffc97e31e766b39988356dbad8a"
   },
   {
     "url": "img/2-500.jpg",
@@ -134,7 +134,7 @@ if (workbox) {
   },
   {
     "url": "img/2.webp",
-    "revision": "938706abcf5838f7530282beb4bf55c0"
+    "revision": "9ee294cf6f8528f7bbc6e3d8a7e2cc9e"
   },
   {
     "url": "img/3-500.jpg",
@@ -146,7 +146,7 @@ if (workbox) {
   },
   {
     "url": "img/3.webp",
-    "revision": "96ed15d2915ef256cfffe2a7d1c65253"
+    "revision": "6a0d885133b0e0e282f92043f20412a6"
   },
   {
     "url": "img/4-500.jpg",
@@ -158,7 +158,7 @@ if (workbox) {
   },
   {
     "url": "img/4.webp",
-    "revision": "52893730cac6efb3d9d383dca261e4be"
+    "revision": "d24cd54d419edf9f828ebade1de42faa"
   },
   {
     "url": "img/5-500.jpg",
@@ -170,7 +170,7 @@ if (workbox) {
   },
   {
     "url": "img/5.webp",
-    "revision": "1543c5378b346acb8f7f62c2fc475e0c"
+    "revision": "c03cf1c2d2ee00bbddba5cb676a9c859"
   },
   {
     "url": "img/6-500.jpg",
@@ -182,7 +182,7 @@ if (workbox) {
   },
   {
     "url": "img/6.webp",
-    "revision": "da06b8606f2ced288062ac36f9e3e452"
+    "revision": "b4b960adf56f021bc8e7bc2f1fd9dcfb"
   },
   {
     "url": "img/7-500.jpg",
@@ -206,7 +206,7 @@ if (workbox) {
   },
   {
     "url": "img/8.webp",
-    "revision": "73332999d6f592bcfa8b042b21da9d5b"
+    "revision": "56d8ab1e82f83f773dd4d4b84da88274"
   },
   {
     "url": "img/9-500.jpg",

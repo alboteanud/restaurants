@@ -29,15 +29,17 @@ a img {
 .restaurants-map {
   height: 14em;
   width: 100%;
-  background-color: #ccc;
+  /* background-color: #ccc; */
 }
+
+
 
 /* Restaurant Filtering  */
 .filter-options {
-  width: 100%;
+  /* width: 100%; */
   background-color: rgb(182, 120, 7);
   padding: 0.2em 0;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: right;
   color: white
 }
@@ -93,7 +95,7 @@ a img {
   grid-gap: 30px;
 }
 
-#restaurants-list li {
+#restaurants-list a li {
   background-color: #fff;
   border: 2px solid #ccc;
   border-radius: 3px;
@@ -102,6 +104,7 @@ a img {
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
+  padding:  4px;
 }
 
 #restaurants-list .restaurant-img {
@@ -109,40 +112,22 @@ a img {
   width: 100%;
 }
 
-#restaurants-list li h1 {
-  color: rgb(174, 117, 14);
-  font-family: Arial, sans-serif;
-  font-size: 1em;
-  line-height: 1.2em;
-  font-weight: 200;
-  letter-spacing: 0;
-  margin: 1em 0 0.5em;
-  text-transform: uppercase;
+#restaurants-list a li h2 {
+  color: black;
 }
 
-#restaurants-list p {
+#restaurants-list a li:hover,
+#restaurants-list a li:focus {
+  text-decoration: none;
+  background-color: #ddd;
+}
+
+#restaurants-list a li p {
   margin: 0;
   padding-left: 6px;
   padding-right: 6px;
-  font-size: 1.2em;
-  line-height: 1.25em;
-}
-
-#restaurants-list li a {
-  background-color: rgb(182, 120, 7);
-  border-bottom: 3px solid #eee;
-  color: #fff;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.2em;
-  width: 60%;
-  margin: 1em 0;
-  text-align: center;
-  text-decoration: none;
-  padding: 1em;
-  text-transform: uppercase;
-  position: relative;
-  bottom: auto;
+  font-size: 1.1em;
+  line-height: 1.3em;
 }
 
 

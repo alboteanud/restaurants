@@ -21,11 +21,12 @@
           "Sunday": "12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm"
         },
         "createdAt": 1504095563444,
-        "updatedAt": "2018-06-09T10:25:53.571Z",
+        "updatedAt": "2018-06-12T19:50:19.425Z",
         "id": 1,
         "is_favorite": "true",
         "restaurant_id": "1",
         "rating": "5",
+        "color": "#FF5733",
         "comments": "nice _test"
       },
       {
@@ -48,8 +49,9 @@
           "Sunday": "12:00 pm - 3:00 pm, 5:00 pm - 11:00 pm"
         },
         "createdAt": 1504095568414,
-        "updatedAt": "2018-06-09T10:25:14.068Z",
+        "updatedAt": "2018-06-12T19:49:35.758Z",
         "is_favorite": "true",
+        "color": "#60c36e",
         "id": 2
       },
       {
@@ -72,8 +74,9 @@
           "Sunday": "11:30 am - 2:00 am"
         },
         "createdAt": 1504095571434,
-        "updatedAt": "2018-06-09T10:25:46.151Z",
+        "updatedAt": "2018-06-09T13:09:49.108Z",
         "id": 3,
+        "color": "#FFC300",
         "is_favorite": "true"
       },
       {
@@ -98,6 +101,7 @@
         "createdAt": 1504095567091,
         "updatedAt": 1504095567091,
         "is_favorite": false,
+        "color": "#581845",
         "id": 4
       },
       {
@@ -122,6 +126,7 @@
         "createdAt": 1504095567071,
         "updatedAt": 1504095567071,
         "is_favorite": false,
+        "color": "#C70039",
         "id": 5
       },
       {
@@ -144,8 +149,9 @@
           "Sunday": "12:00 pm - 9:00 pm"
         },
         "createdAt": 1504095567071,
-        "updatedAt": "2018-06-09T10:26:39.549Z",
-        "is_favorite": "true",
+        "updatedAt": "2018-06-09T13:10:16.926Z",
+        "is_favorite": "false",
+        "color": "#2874A6",
         "id": 6
       },
       {
@@ -170,10 +176,11 @@
         "createdAt": 1504095567091,
         "updatedAt": 1504095567091,
         "is_favorite": false,
+        "color": "#009fdb",
         "id": 7
       },
       {
-        "name": "The Dutch",
+        "name": "Dutch Man",
         "neighborhood": "Manhattan",
         "photograph": "8",
         "address": "131 Sullivan St, New York, NY 10012",
@@ -194,6 +201,7 @@
         "createdAt": 1504095567091,
         "updatedAt": 1504095567091,
         "is_favorite": false,
+        "color": "#DAF7A6",
         "id": 8
       },
       {
@@ -218,6 +226,7 @@
         "createdAt": 1504095567191,
         "updatedAt": 1504095567191,
         "is_favorite": false,
+        "color": "#f6afce",
         "id": 9
       },
       {
@@ -240,8 +249,9 @@
           "Sunday": "11:00 am - 12:00 am"
         },
         "createdAt": 1504095567183,
-        "updatedAt": 1504095567183,
-        "is_favorite": false,
+        "updatedAt": "2018-06-09T13:06:52.480Z",
+        "is_favorite": "false",
+        "color": "#3c3b6e",
         "id": 10
       }
     ],
@@ -474,24 +484,24 @@
         "id": 33
       },
       {
-        "restaurant_id": "1",
+        "restaurant_id": 10,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
-        "rating": "4",
-        "comments": "",
-        "updatedAt": 1528286466857,
-        "createdAt": "2018-06-06T12:01:06.866Z",
-        "id": 35
+        "rating": "",
+        "comments": "dfzfsdf",
+        "updatedAt": 1528549309983,
+        "createdAt": "2018-06-09T13:01:49.997Z",
+        "id": 37
       },
       {
-        "restaurant_id": 1,
+        "restaurant_id": 10,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
         "rating": "4",
-        "comments": "xcvxcfvx",
-        "updatedAt": 1528534700919,
-        "createdAt": "2018-06-09T08:58:20.959Z",
-        "id": 36
+        "comments": "fzdsfdzs",
+        "updatedAt": 1528549333021,
+        "createdAt": "2018-06-09T13:02:13.032Z",
+        "id": 38
       }
     ]
   },
@@ -547,7 +557,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 36
+      "id": 38
     }
   }
 }

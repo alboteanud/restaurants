@@ -396,21 +396,24 @@ form {
 
 @media screen and (min-width: 1080px) {
   #restaurant-container {
-    /* width: 800px;
-    order: 0;*/
+    width: 800px;
+    order: 0;
     margin: 0 0 0 auto; 
   }
   #map-container {
-    width: 280px;
+    width: 0px;
     order: 1;
-    height: 60vh;
-    margin: 0 auto 0 0;
+    height: 750px;
+    margin: 0 auto auto 8px;
+    flex-grow: 1;
   }
   
   #reviews-container {
-    width: 1080px;
-    order: 2;
+    width: 0px;
+    min-width: 400px;
+    order: 1;
     margin: auto;
+    flex: 1;
   }
   
 }
