@@ -153,15 +153,31 @@ static getImageUrlForRestaurant(restaurant, type) {
   return (`/img/${restaurant.photograph}.jpg`);
 }
 
-static mapMarkerForRestaurant(restaurant, map) {
+static getMapMarkerForRestaurant(restaurant, map) {
   const marker = new google.maps.Marker({
     position: restaurant.latlng,
     title: restaurant.name,
     url: DBHelper.buildUrlForRestaurant(restaurant),
     map: map,
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.DROP,
+    // icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" 
+    // + restaurant.color.replace("#","")
+    icon: DBHelper.getPinSymbol(restaurant.color),
   }, );
   return marker;
+}
+
+static getPinSymbol(color) {
+  return {
+      // path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+      path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z', // simple pin
+      // path: 'M 0,0 -1,-2 V -43 H 1 V -2 z M 1,-40 H 30 V -20 H 1 z',  //flag
+      fillColor: color,
+      fillOpacity: 1,
+      strokeColor: '#000',
+      strokeWeight: 2,
+      scale: 1,
+ };
 }
 
 static fetchRestaurantData(extraUrl, callback) {

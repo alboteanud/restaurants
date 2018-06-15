@@ -26,32 +26,30 @@
   
   <main id="maincontent" role="main">
     <button id='btn-add-to-home' style="display:none">Add to home screen</button>
-
+    
     <section id="map-container" >
-      <!-- <div id="map" class="restaurants-map" tabindex="0" role="application"  aria-label="Map with restaurants"></div>
-     <p></p> -->
-      <div class="static-map" tabindex="0"  aria-label="Map with restaurants"></div>
+      <button id="btn-toggle-map" onclick="toggleMapStyle()">Map style</button>
+      <div class="interactive-map" tabindex="0" role="application"  aria-label="Interactive map with restaurants" style="display:none"></div>
+      <div class="static-map" tabindex="0" aria-label="Map with restaurants"></div>
     </section>
-    <section id="filters">
+    <section id="filters">  
       <div class="filter-options">
-        
-        <span style="display:inline-block">
-          <label for="neighborhoods-select">Select neighborhood </label>
+        <span style="display:inline-block;">
+          <label for="neighborhoods-select"><h2>Select neighborhood</h2></label>
           <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
         </span>
-        
-        <span style="display:inline-block">
-          <label for="cuisines-select">Select cuisine </label>
+        <span style="display:inline-block;">
+          <label for="cuisines-select"><h2>Select cuisine</h2></label>
           <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
             <option value="all">All Cuisines</option>
           </select>
         </span>
-      </section>
-
-    <section>   
       </div>
+    </section>
+    
+    <section>   
       <!-- <link rel="stylesheet" href="css/restaurant_list.css">       -->
       <ul id="restaurants-list"></ul>
     </section>
@@ -64,7 +62,7 @@
   <script src="js/initSW.js"></script>
   <script async defer src="js/lazysizes.min.js"></script>
   <script src="js/main.js"></script>
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initMap"></script>      -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=showBtnToggleMap"></script>     
   
   
   <footer id="footer">

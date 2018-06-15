@@ -1,15 +1,19 @@
 @charset "utf-8";
 
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 641px) {
   nav h1 a {
     font-size: 1.5em;
   }
-
+  
   #restaurants-list {
     grid-template-columns: repeat(2, 1fr);
   }
-  .restaurants-map {
-    height: 18em;
+  .interactive-map {
+    /* width: ; */
+    height: 200px;
+  }
+  .filter-options {
+    padding-bottom: 8px;
   }
 }
 
@@ -20,31 +24,32 @@
   nav {
     padding: 2em 0;
   }
-  .restaurants-map {
-    height: 20em;
-  }
-  .filter-options {
-    padding: 1em 0;
-    /* text-align: center; */
-  }
-
+  
 }
 
 @media screen and (min-width: 1280px) {
- 
-  #map-container {
-    width: 70%; 
-    flex: 1;
+  
+  #restaurants-list {
+    grid-template-columns: repeat(4, 1fr);
   }
-
+  
+  #map-container  {
+    width: 78%; 
+    max-width: 1280px;
+  }
+  
   #filters {
     width: 0px;
     flex: 1;
   }
-
+  
   .filter-options {
-    height: 300px;
+    height: 100%;
     padding: 0;
   }
-
+  
+  .filter-options span {
+    margin:  16px;
+  }
+  
 }

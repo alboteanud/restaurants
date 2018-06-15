@@ -42,10 +42,19 @@
       
       <picture id="restaurant-pic" tabindex="0"></picture>
       <p id="restaurant-cuisine" tabindex="0"></p>
+
+      
       <div class="contained_table_restaurant_hours">
         <table id="restaurant-hours" tabindex="0"></table>
       </div>
       <p id="restaurant-address" tabindex="0"></p>
+      
+      <span id="container-fav" aria-label="make my favorite" text-align="right">     
+        <input type="checkbox"  id="input-fav" onclick="setFavorite()">
+        <label for="input-fav" class="label-fav fa fa-star"> fav</label>
+      </span>
+      
+      
     </section>
     
     <section id="reviews-container">
@@ -93,11 +102,6 @@
           </div>
         </div>
         
-        
-        <span id="container-fav" aria-label="make my favorite">     
-          <input type="checkbox"  id="input-fav" onclick="setFavorite()">
-          <label for="input-fav" class="label-fav fa fa-star"> fav</label>
-        </span>
         
       </div>
       

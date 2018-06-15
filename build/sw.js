@@ -46,15 +46,15 @@ if (workbox) {
   },
   {
     "url": "css/detail.css",
-    "revision": "4ce1ee383c6a33b223ae04298433ca3c"
+    "revision": "e62d16c93d70a17b44e8b898b0fc69f2"
   },
   {
     "url": "css/main_620.css",
-    "revision": "e94b9e5af83e4a91be92054f5943d2e3"
+    "revision": "dbb96e9ca8b1a9eea1b83476d37680b8"
   },
   {
     "url": "css/main.css",
-    "revision": "64d3715965626c1c700002b6dc015a68"
+    "revision": "8d863ac11f71658fa7eb17e7ee308004"
   },
   {
     "url": "Gruntfile.js",
@@ -62,11 +62,11 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "962c8d38be8ef9cf64fd2e2232ca255f"
+    "revision": "4071b22369886924d3ab700a70298536"
   },
   {
     "url": "js/dbhelper.js",
-    "revision": "a837a1d1c47fd4b6702e20cef7aab1dd"
+    "revision": "0092ae8a077965ec8d19254e74363526"
   },
   {
     "url": "js/idb-promised.js",
@@ -82,7 +82,7 @@ if (workbox) {
   },
   {
     "url": "js/main.js",
-    "revision": "f163f7de0d390d310feaabfcb5eca48a"
+    "revision": "15c9e486920591803df8c1f8a5ef5f3b"
   },
   {
     "url": "js/restaurant_info.js",
@@ -98,7 +98,7 @@ if (workbox) {
   },
   {
     "url": "restaurant.html",
-    "revision": "3710a001780dbfda60d89773187361e1"
+    "revision": "7099c3e21a98ea73357f88f27ce4c136"
   },
   {
     "url": "img/1-500.jpg",

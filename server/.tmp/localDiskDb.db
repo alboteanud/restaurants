@@ -21,7 +21,7 @@
           "Sunday": "12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm"
         },
         "createdAt": 1504095563444,
-        "updatedAt": "2018-06-12T19:50:19.425Z",
+        "updatedAt": "2018-06-13T10:50:20.690Z",
         "id": 1,
         "is_favorite": "true",
         "restaurant_id": "1",
@@ -99,8 +99,8 @@
           "Sunday": "Sat - 10:30 pm"
         },
         "createdAt": 1504095567091,
-        "updatedAt": 1504095567091,
-        "is_favorite": false,
+        "updatedAt": "2018-06-13T10:57:40.138Z",
+        "is_favorite": "true",
         "color": "#581845",
         "id": 4
       },
@@ -502,6 +502,16 @@
         "updatedAt": 1528549333021,
         "createdAt": "2018-06-09T13:02:13.032Z",
         "id": 38
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "4",
+        "comments": "the candles were super cool",
+        "updatedAt": 1528833538893,
+        "createdAt": "2018-06-12T19:58:58.933Z",
+        "id": 39
       }
     ]
   },
@@ -557,7 +567,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 38
+      "id": 39
     }
   }
 }

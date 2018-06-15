@@ -39,8 +39,8 @@
   background: #777 none repeat scroll 0 0;
   width: 100%;
   margin: auto;
-  /* border-bottom: 1px solid #d9d9d9;
-  border-top: 1px solid #fff; */
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #fff;
   height: 14em;
   order: 1;
 }
@@ -58,10 +58,10 @@
   font-weight: 200;
   letter-spacing: 0;
   margin: 0;
-  padding: 1em 0 0.1em 0;
-  /* text-transform: uppercase; */
-  /* line-height: 1.25em; */
-  /* width: 100%; */
+  padding: 1em;
+  text-transform: uppercase; 
+  line-height: 1.25em; 
+  width: 100%;
   text-align: center;
 }
 
@@ -146,7 +146,6 @@
 .contained_table_restaurant_hours {
   width: 100%;
   overflow-x: auto;
-  padding: 1em 1em;
 }
 
 #restaurant-hours tr td {
@@ -286,7 +285,7 @@ form {
 
 .label-fav {
   position: relative;
-  float: left;
+  float: right;
   display: block;
   color:gray;
   font-size: 22px;
@@ -398,20 +397,20 @@ form {
   #restaurant-container {
     width: 800px;
     order: 0;
-    margin: 0 0 0 auto; 
   }
   #map-container {
     width: 0px;
+    min-width: 400px;
     order: 1;
-    height: 750px;
-    margin: 0 auto auto 8px;
-    flex-grow: 1;
+    height: 1000px;
+    margin: auto;
+    flex: 1;
   }
   
   #reviews-container {
     width: 0px;
     min-width: 400px;
-    order: 1;
+    order: 2;
     margin: auto;
     flex: 1;
   }
