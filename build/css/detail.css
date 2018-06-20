@@ -35,22 +35,6 @@
   text-decoration: underline;
 }
 
-#map-container {
-  background: #777 none repeat scroll 0 0;
-  width: 100%;
-  margin: auto;
-  border-bottom: 1px solid #d9d9d9;
-  border-top: 1px solid #fff;
-  height: 14em;
-  order: 1;
-}
-
-#map {
-  background-color: #ccc;
-  width: 100%;
-  height: 100%;
-}
-
 #restaurant-name {
   color: #fff;
   font-family: Arial, sans-serif;
@@ -394,15 +378,17 @@ form {
 }
 
 @media screen and (min-width: 1080px) {
+
   #restaurant-container {
     width: 800px;
     order: 0;
   }
+
   #map-container {
     width: 0px;
     min-width: 400px;
-    order: 1;
-    height: 1000px;
+    /* order: 1; */
+    /* height: 400px; */
     margin: auto;
     flex: 1;
   }
@@ -417,6 +403,18 @@ form {
   
 }
 
+.interactive-map {
+  width: 400px;
+  height: 200px;
+}
+
+.static-map {
+  /* height: 100%; */
+}
+
+#map-container {
+  order: 1;
+}
 
 
 

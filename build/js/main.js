@@ -90,8 +90,7 @@ resetRestaurants = (restaurants) => {
 }
 
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  
-  console.log('fillRestaurantsHTML() in main.js');
+
   const ul = document.getElementById('restaurants-list');
   var urlStaticMap = "https://maps.googleapis.com/maps/api/staticmap?&zoom=10&key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4";
   
@@ -103,7 +102,6 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
     
     urlStaticMap += extraUrlStaticMap;     
   }
-  console.log("url static map " + urlStaticMap);
   fillStaticMapHTML(urlStaticMap); 
   addMarkersToInteractiveMap(); 
 }
@@ -191,8 +189,8 @@ getUrlMapStatic = (ref, urlStaticMap) => {
 }
 
 fillStaticMapHTML = (urlStaticMap) => {
-    const widthDevice = (window.innerWidth > 0) ? window.innerWidth : screen.width; 
-
+  const widthDevice = (window.innerWidth > 0) ? window.innerWidth : screen.width; 
+  
   const source1 = document.createElement('source');
   source1.media = "(min-width: 641px)"; 
   source1.setAttribute("data-srcset", getUrlMapStatic(960, urlStaticMap));
@@ -200,7 +198,7 @@ fillStaticMapHTML = (urlStaticMap) => {
   source1.setAttribute("width", "100%");
   source1.className = 'lazyload';
   source1.setAttribute("height", "auto");
-
+  
   const source2 = document.createElement('source');
   source2.media = "(min-width: 961px)"; 
   source2.setAttribute("data-srcset", getUrlMapStatic(1280, urlStaticMap));
@@ -208,7 +206,7 @@ fillStaticMapHTML = (urlStaticMap) => {
   source2.setAttribute("width", "100%");
   source2.className = 'lazyload';
   source2.setAttribute("height", "auto");
- 
+  
   const imgDefault = document.createElement('img');
   imgDefault.setAttribute("data-src", getUrlMapStatic(widthDevice, urlStaticMap) );
   imgDefault.setAttribute("width", "100%");
@@ -221,17 +219,6 @@ fillStaticMapHTML = (urlStaticMap) => {
   picture.append(source2);
   picture.append(imgDefault);
   document.querySelector('.static-map').append(picture);
-}
-
-initMap = () => {      
-  const mapBound = getMapBound();            
-  self.map = new google.maps.Map(document.querySelector('.interactive-map'), {
-    zoom: 10,
-    center: mapBound.getCenter(),
-    scrollwheel: false
-  });
-  // self.map.fitBounds(mapBound);
-  // updateRestaurants();
 }
 
 // add to home button
@@ -261,24 +248,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
   
 });
 
-toggleMapStyle = () => {
-  var staticMap = document.querySelector('.static-map');
-  if (staticMap.style.display === "none") {
-    document.querySelector('.interactive-map').style.display = "none";
-    staticMap.style.display = "block";
-    
-  } else {
-    staticMap.style.display = "none";
-    document.querySelector('.interactive-map').style.display = "block";
-    
-  }
-}
-
-window.showBtnToggleMap = () => {
-  initMap();
-  addMarkersToInteractiveMap();   
-  document.getElementById("btn-toggle-map").style.display = "block";
-}
 
 getMapBound = () => {
   if(!restaurants) return;
@@ -292,4 +261,47 @@ getMapBound = () => {
   console.log( "map center " + bound.getCenter() );
   return bound;
 }
+
+toggleMapStyle = () => {
+  var staticMap = document.querySelector('.static-map');
+  if (staticMap.style.display === "none") {
+    document.querySelector('.interactive-map').style.display = "none";
+    staticMap.style.display = "block";
+  } 
+  else {
+    if(!self.map) {
+      // TODO add a loading element here
+      loadMapInteractive();
+    } else {
+      staticMap.style.display = "none";
+      document.querySelector('.interactive-map').style.display = "block";  
+      addMarkersToInteractiveMap();
+    } 
+  }
+}
+
+initInteractiveMap = () => {      
+  const mapBound = getMapBound();            
+  self.map = new google.maps.Map(document.querySelector('.interactive-map'), {
+    zoom: 10,
+    center: mapBound.getCenter(),
+    scrollwheel: false
+  });
+  // self.map.fitBounds(mapBound);
+  // updateRestaurants();
+  addMarkersToInteractiveMap();   
+  document.querySelector('.static-map').style.display = "none";
+  document.querySelector('.interactive-map').style.display = "block";  
+}
+
+
+loadMapInteractive = () => {
+  var script = document.createElement('script');
+  script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initInteractiveMap";
+  document.body.appendChild(script);
+}
+
+
+
+
 

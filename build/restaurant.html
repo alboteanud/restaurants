@@ -32,9 +32,12 @@
   </header>
   
   <main id="maincontent" role="main">
-    <section id="map-container">
-      <div id="map" tabindex="0" role="application" aria-label="Map - restaurant location"></div>
+    <section id="map-container" >
+      <button id="btn-toggle-map" onclick="toggleMapStyle()">Map style</button>
+      <div class="interactive-map" tabindex="0" role="application"  aria-label="Interactive map with restaurants" style="display:none"></div>
+      <div class="static-map" tabindex="0" aria-label="Map with restaurants"></div>
     </section>
+
     <section id="restaurant-container">
       <div class="contained_restaurant_name">
         <h2 id="restaurant-name" tabindex="0"></h2>
@@ -122,11 +125,10 @@
   <script src="js/dbhelper.js"></script>
   <script src="js/idb-promised.js"></script>
   <script src="sw.js"></script>
-  <script src="js/initSW.js"></script>
   <script async defer src="js/lazysizes.min.js"></script>
+  <script src="js/utils.js" type="text/javascript"></script>
   <script src="js/restaurant_info.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&libraries=places&callback=initMap"></script>
-  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  <script src="https://apis.google.com/js/platform.js?onload=initGoogleUser" async defer></script>
 </body>
 
 </html>

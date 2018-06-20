@@ -1,24 +1,8 @@
-window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
-    }
-  });
-}
+var auth2, googleUser, restaurant, map; 
 
-fetchRestaurantFromURL = (callback) => {
-  if (self.restaurant) { // restaurant already fetched!
-    callback(null, self.restaurant)
-    return;
-  }
+(fetchRestaurantFromURL = (callback) => {
+  if (self.restaurant) {  return; }
+  
   const id = getParameterByName('id');
   if (!id) { // no id found in URL
     error = 'No restaurant id in URL'
@@ -31,10 +15,13 @@ fetchRestaurantFromURL = (callback) => {
         return;
       }
       fillRestaurantHTML();
-      callback(null, restaurant)
+      fillBreadcrumb();
+      fillStaticMapHTML();
+      fetchReviews();
     });
   }
-}
+})();
+
 
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
@@ -65,13 +52,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-
-
-
+  
   if (restaurant.operating_hours) {fillRestaurantHoursHTML();}
   document.getElementById("input-fav").checked = (restaurant.is_favorite == 'true')
-  fetchReviews(restaurant.id);
-  
   
   
 }
@@ -94,21 +77,18 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 }
 
 // http://localhost:1337/reviews/?restaurant_id=<restaurant_id>
-fetchReviews = (id) => {
+fetchReviews = (restaurant = self.restaurant) => {
   // DBHelper.fetchAndStore(DBHelper.OBJ_ST_REVIEWS, `/reviews/?restaurant_id=` + id, (error, jsonResponse) => {
-  DBHelper.fetchReviewsData(id, (error, jsonResponse) => {
-    if (!jsonResponse) {
+  DBHelper.fetchReviewsData(restaurant.id, (error, responseReviews) => {
+    if (!responseReviews) {
       console.error(error);
       return;
     }
     // DBHelper.addToDB(reviews, DBHelper.DATABASE_OBJECT_STORE_REVIEWS);
-    fillReviewsHTML(jsonResponse);
+    fillReviewsHTML(responseReviews);
   });
 }
 
-/**
-* Create all reviews HTML and add them to the webpage.
-*/
 fillReviewsHTML = (reviews) => {
   const container = document.getElementById('reviews-container');
   if (!reviews) {
@@ -182,26 +162,11 @@ createReviewHTML = (review) => {
 }
 
 // Add restaurant name to the breadcrumb navigation menu
-var restaurant;
 fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
-}
-
-// Get a parameter by name from page URL
-getParameterByName = (name, url) => {
-  if (!url)
-  url = window.location.href;
-  name = name.replace(/[\[\]]/g, '\\$&');
-  const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),
-  results = regex.exec(url);
-  if (!results)
-  return null;
-  if (!results[2])
-  return '';
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
 
@@ -231,16 +196,12 @@ updateUI = (review) => {
   document.getElementById("myForm").reset();
 }
 
-
-var auth2; 
-var googleUser; 
-
 signOut = () => {
   auth2.signOut().then(() => {
   });
 }
 
-init = () => {
+initGoogleUser = () => {
   gapi.load('auth2', initSigninV2);
   gapi.signin2.render('sign-in-google');
 };
@@ -252,7 +213,7 @@ initSigninV2 = () => {
   if (auth2.isSignedIn.get() == true) {
     auth2.signIn();
   }
-  refreshValues();
+  refreshUserValues();
 };
 
 signinChanged = (val) => {  // val = true/false
@@ -283,16 +244,15 @@ signinChanged = (val) => {  // val = true/false
 
 userChanged = (user) => {
   console.log('User now: ', user);
-  refreshValues();
+  refreshUserValues();
 };
 
 updateGoogleUser = () => {
-  
   // update UI with user name 
   if (googleUser && googleUser.getBasicProfile()) {
     var userName = googleUser.getBasicProfile().getGivenName();
     userName = capitalizeFirstLetter(userName);
-    document.getElementById('new-review-title').innerText =  "Hi " + userName + ". How was at " + self.restaurant.name + "?";
+    document.getElementById('new-review-title').innerText =  "Hi " + userName + ". Your review here";
     var btnsDel = document.getElementsByClassName('btnDel');
     for (i = 0; i < btnsDel.length; i++) {
       if(btnsDel[i].className === 'btnDel ' + googleUser.getBasicProfile().getEmail()) {
@@ -304,7 +264,7 @@ updateGoogleUser = () => {
   }
 };
 
-refreshValues = () => {
+refreshUserValues = () => {
   if (auth2){
     console.log('Refreshing values...');
     googleUser = auth2.currentUser.get(); 
@@ -316,7 +276,6 @@ capitalizeFirstLetter = (targetString) => {
   return targetString.charAt(0).toUpperCase() + targetString.slice(1);
 }
 
-
 // PUT http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=true
 setFavorite = () => {
   const checkBox = document.getElementById("input-fav");
@@ -324,3 +283,91 @@ setFavorite = () => {
   return fetch(url, {method: 'PUT'})
   // TODO create user_data in server rather than saving in restaurants
 }
+
+toggleMapStyle = () => {
+  var staticMap = document.querySelector('.static-map');
+  if (staticMap.style.display === "none") {
+    document.querySelector('.interactive-map').style.display = "none";
+    staticMap.style.display = "block";
+  } 
+  else {
+    if(!self.map) {
+      // TODO add a loading element here
+      loadMapInteractive();
+    } else {
+      staticMap.style.display = "none";
+      document.querySelector('.interactive-map').style.display = "block";  
+    } 
+  }
+}
+
+loadMapInteractive = () => {
+  var script = document.createElement('script');
+  script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&callback=initInteractiveMap";
+  document.body.appendChild(script);
+}
+
+initInteractiveMap = () => {      
+  // const mapBound = getMapBound();            
+  self.map = new google.maps.Map(document.querySelector('.interactive-map'), {
+    zoom: 14,
+    center: self.restaurant.latlng,
+    // center: {lat: -34.397, lng: 150.644},
+    scrollwheel: false
+  });   
+  DBHelper.getMapMarkerForRestaurant(restaurant, self.map);
+  document.querySelector('.static-map').style.display = "none";
+  document.querySelector('.interactive-map').style.display = "block";  
+}
+
+fillStaticMapHTML = (restaurant = self.restaurant) => {
+  var urlStaticMap = "https://maps.googleapis.com/maps/api/staticmap?&zoom=14&key=AIzaSyDPj14nPSzVtCcHwwW-sU-DYPiJSrNZyH4&markers=" 
+  + restaurant.latlng.lat + "," + restaurant.latlng.lng;
+  
+  const widthDevice = (window.innerWidth > 0) ? window.innerWidth : screen.width; 
+  
+  const source1 = document.createElement('source');
+  source1.media = "(min-width: 641px)"; 
+  source1.setAttribute("data-srcset", getUrlMapStatic(960, urlStaticMap));
+  source1.setAttribute("alt", "map with restaurants");
+  source1.setAttribute("width", "100%");
+  source1.className = 'lazyload';
+  source1.setAttribute("height", "auto");
+  
+  const source2 = document.createElement('source');
+  source2.media = "(min-width: 961px)"; 
+  source2.setAttribute("data-srcset", getUrlMapStatic(1280, urlStaticMap));
+  source2.setAttribute("alt", "map with restaurants");
+  source2.setAttribute("width", "100%");
+  source2.className = 'lazyload';
+  source2.setAttribute("height", "auto");
+  
+  const imgDefault = document.createElement('img');
+  imgDefault.setAttribute("data-src", getUrlMapStatic(widthDevice, urlStaticMap) );
+  imgDefault.setAttribute("width", "100%");
+  imgDefault.setAttribute("height", "auto");
+  imgDefault.alt = "map with restaurants";
+  imgDefault.className = 'lazyload';
+  
+  const picture = document.createElement('picture');
+  picture.append(source1);
+  picture.append(source2);
+  picture.append(imgDefault);
+  document.querySelector('.static-map').append(picture);
+}
+
+getUrlMapStatic = (ref, urlStaticMap) => {
+  var reqPictureWidth = (ref > 1280) ? 1280 : ref;
+  var reqPictureHeight = 640;
+  var scale = 1;
+  
+  if (reqPictureWidth > 640) {
+    scale = 2;
+    reqPictureWidth /= 2;
+    reqPictureHeight /= 2;
+  }
+  const urlImgMap = urlStaticMap + "&size=" + reqPictureWidth + "x" + reqPictureHeight +"&scale=" + scale;
+  console.log("url img map " + urlImgMap);
+  return urlImgMap;
+}
+

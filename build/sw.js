@@ -1,52 +1,57 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
-
-
-if (workbox) {
-  console.log(`Yay! Workbox is loaded 🎉`);
-
-
-  restaurantHandler = workbox.strategies.cacheFirst({
-    cacheName: 'restaurant-cache',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 50,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
-      })
-    ]
-  });
+if( 'function' === typeof importScripts) {
+  importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
   
-  showNotification = (text) => {
-    self.registration.showNotification(text,{
-      body: '🎉`🎉`🎉`'
-    });
-  };
+  // addEventListener('message', onMessage);
   
-  bgSyncPlugin = new workbox.backgroundSync.Plugin(
-    'dashboardr-queue',
-    {
-      callbacks: {queueDidReplay: console.log("Review posted") }
-    }
-  );
-  
-  bgSyncPluginDelete = new workbox.backgroundSync.Plugin(
-    'dashboardr-queue-delete',
-    {
-      callbacks: { queueDidReplay: console.log("Review deleted") }
-    }
-  );
-  
-  workbox.precaching.precacheAndRoute([
+  // function onMessage(e) { 
+  //   // do some work here 
+    console.log("onMessage() in sw.js")
+    if (workbox) {
+      console.log(`Yay! Workbox is loaded 🎉`);
+      
+      
+      restaurantHandler = workbox.strategies.cacheFirst({
+        cacheName: 'restaurant-cache',
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxEntries: 50,
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+          })
+        ]
+      });
+      
+      showNotification = (text) => {
+        self.registration.showNotification(text,{
+          body: '🎉`🎉`🎉`'
+        });
+      };
+      
+      bgSyncPlugin = new workbox.backgroundSync.Plugin(
+        'dashboardr-queue',
+        {
+          callbacks: {queueDidReplay: console.log("Review posted") }
+        }
+      );
+      
+      bgSyncPluginDelete = new workbox.backgroundSync.Plugin(
+        'dashboardr-queue-delete',
+        {
+          callbacks: { queueDidReplay: console.log("Review deleted") }
+        }
+      );
+      
+      workbox.precaching.precacheAndRoute([
   {
     "url": "404.html",
     "revision": "a707d37055e916cc578b5910e81a425b"
   },
   {
     "url": "css/common.css",
-    "revision": "a2ac8444ca492b864328c25ca45c70e9"
+    "revision": "6c9b295173298858486e18f6286ddc27"
   },
   {
     "url": "css/detail.css",
-    "revision": "e62d16c93d70a17b44e8b898b0fc69f2"
+    "revision": "be10155fc531fc4f021ed6baf7cd8a81"
   },
   {
     "url": "css/main_620.css",
@@ -54,7 +59,7 @@ if (workbox) {
   },
   {
     "url": "css/main.css",
-    "revision": "8d863ac11f71658fa7eb17e7ee308004"
+    "revision": "c332cded0c009269e86db769fed1573a"
   },
   {
     "url": "Gruntfile.js",
@@ -62,19 +67,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "4071b22369886924d3ab700a70298536"
+    "revision": "b9ff525bddf46b20d74141e4216ffc2d"
   },
   {
     "url": "js/dbhelper.js",
-    "revision": "0092ae8a077965ec8d19254e74363526"
+    "revision": "32cdc9fac6573260d7f2b388c91e9bcf"
   },
   {
     "url": "js/idb-promised.js",
     "revision": "59df18a7433f090282337136440403f7"
-  },
-  {
-    "url": "js/initSW.js",
-    "revision": "75d55ee206c005ed3bbdc575a1b577c7"
   },
   {
     "url": "js/lazysizes.min.js",
@@ -82,11 +83,15 @@ if (workbox) {
   },
   {
     "url": "js/main.js",
-    "revision": "15c9e486920591803df8c1f8a5ef5f3b"
+    "revision": "11e067230ce7db9a593090b3f271d351"
   },
   {
     "url": "js/restaurant_info.js",
-    "revision": "418ac77506a0bea31bf2aa045c8e49df"
+    "revision": "4dc49ed34f070afc9160162cf624259b"
+  },
+  {
+    "url": "js/utils.js",
+    "revision": "babb784f3631325f86d93cf5307c3c2d"
   },
   {
     "url": "manifest.json",
@@ -98,7 +103,7 @@ if (workbox) {
   },
   {
     "url": "restaurant.html",
-    "revision": "7099c3e21a98ea73357f88f27ce4c136"
+    "revision": "19f764958c0c9535713b40e5f97b4da5"
   },
   {
     "url": "img/1-500.jpg",
@@ -237,28 +242,27 @@ if (workbox) {
     "revision": "ad87b13d0bfcb335d27e3c14a735b208"
   }
 ]);
-  
-  workbox.routing.registerRoute(/restaurant\.html(.*)/, args => {
-    return restaurantHandler.handle(args);
-  });
-  
-  workbox.routing.registerRoute(
-    'http://localhost:1337/reviews/',
-    new workbox.strategies.NetworkOnly({ plugins: [bgSyncPlugin]}),
-    'POST'
-  );
-  
-  workbox.routing.registerRoute(
-    'http://localhost:1337/reviews/',
-    new workbox.strategies.NetworkOnly({ plugins: [bgSyncPluginDelete]}),
-    'DELETE'
-  );
-  
-
-  
-}
-
-else { console.log(`Boo! Workbox didn't load 😬`); }
-
-
-
+      
+      workbox.routing.registerRoute(/restaurant\.html(.*)/, args => {
+        return restaurantHandler.handle(args);
+      });
+      
+      workbox.routing.registerRoute(
+        'http://localhost:1337/reviews/',
+        new workbox.strategies.NetworkOnly({ plugins: [bgSyncPlugin]}),
+        'POST'
+      );
+      
+      workbox.routing.registerRoute(
+        'http://localhost:1337/reviews/',
+        new workbox.strategies.NetworkOnly({ plugins: [bgSyncPluginDelete]}),
+        'DELETE'
+      );
+      
+      
+    }
+    
+    else { console.log(`Boo! Workbox didn't load 😬`); }
+    
+  }
+// }

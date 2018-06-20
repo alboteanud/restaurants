@@ -63,7 +63,7 @@ static fetchRestaurantById(id, callback) {
     if (error) {
       callback(error, null);
     } else {
-
+      
       const restaurant = restaurants.find(r => r.id == id);
       if (restaurant) { // Got the restaurant
         callback(null, restaurant);
@@ -169,15 +169,15 @@ static getMapMarkerForRestaurant(restaurant, map) {
 
 static getPinSymbol(color) {
   return {
-      // path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-      path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z', // simple pin
-      // path: 'M 0,0 -1,-2 V -43 H 1 V -2 z M 1,-40 H 30 V -20 H 1 z',  //flag
-      fillColor: color,
-      fillOpacity: 1,
-      strokeColor: '#000',
-      strokeWeight: 2,
-      scale: 1,
- };
+    // path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
+    path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z', // simple pin
+    // path: 'M 0,0 -1,-2 V -43 H 1 V -2 z M 1,-40 H 30 V -20 H 1 z',  //flag
+    fillColor: color,
+    fillOpacity: 1,
+    strokeColor: '#000',
+    strokeWeight: 2,
+    scale: 1,
+  };
 }
 
 static fetchRestaurantData(extraUrl, callback) {
@@ -248,6 +248,7 @@ static fetchReviewsData(restaurantID, callback) {
   })
   .catch(error => callback(error, null));
 }
+
 
 
 
