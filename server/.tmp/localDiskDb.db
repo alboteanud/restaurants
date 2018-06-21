@@ -21,7 +21,7 @@
           "Sunday": "12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm"
         },
         "createdAt": 1504095563444,
-        "updatedAt": "2018-06-13T10:50:20.690Z",
+        "updatedAt": "2018-06-21T10:08:41.981Z",
         "id": 1,
         "is_favorite": "true",
         "restaurant_id": "1",
@@ -149,7 +149,7 @@
           "Sunday": "12:00 pm - 9:00 pm"
         },
         "createdAt": 1504095567071,
-        "updatedAt": "2018-06-09T13:10:16.926Z",
+        "updatedAt": "2018-06-21T09:23:25.781Z",
         "is_favorite": "false",
         "color": "#2874A6",
         "id": 6
@@ -512,6 +512,16 @@
         "updatedAt": 1528833538893,
         "createdAt": "2018-06-12T19:58:58.933Z",
         "id": 39
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "",
+        "comments": "",
+        "updatedAt": 1529575081460,
+        "createdAt": "2018-06-21T09:58:01.559Z",
+        "id": 40
       }
     ]
   },
@@ -567,7 +577,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 39
+      "id": 40
     }
   }
 }

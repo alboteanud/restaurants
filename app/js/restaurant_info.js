@@ -358,7 +358,7 @@ fillStaticMapHTML = (restaurant = self.restaurant) => {
 
 getUrlMapStatic = (ref, urlStaticMap) => {
   var reqPictureWidth = (ref > 1280) ? 1280 : ref;
-  var reqPictureHeight = 640;
+  var reqPictureHeight = 280;
   var scale = 1;
   
   if (reqPictureWidth > 640) {

@@ -51,7 +51,7 @@ if( 'function' === typeof importScripts) {
   },
   {
     "url": "css/detail.css",
-    "revision": "be10155fc531fc4f021ed6baf7cd8a81"
+    "revision": "2e912a6d78906a973477948bd0b4ae2c"
   },
   {
     "url": "css/main_620.css",
@@ -87,7 +87,7 @@ if( 'function' === typeof importScripts) {
   },
   {
     "url": "js/restaurant_info.js",
-    "revision": "4dc49ed34f070afc9160162cf624259b"
+    "revision": "4162ea9a096141ca8bc0ec150b8b7ca3"
   },
   {
     "url": "js/utils.js",
@@ -103,7 +103,7 @@ if( 'function' === typeof importScripts) {
   },
   {
     "url": "restaurant.html",
-    "revision": "19f764958c0c9535713b40e5f97b4da5"
+    "revision": "ef3211785ce507e4498e2c04ec1d82ed"
   },
   {
     "url": "img/1-500.jpg",

@@ -25,7 +25,7 @@
 }
 
 #breadcrumb li a {
-  color: #0275d8;
+  color: #116ab8;
   text-decoration: underline;
   padding: 1em 0.5em 1em 1em;
 }
@@ -45,7 +45,7 @@
   padding: 1em;
   text-transform: uppercase; 
   line-height: 1.25em; 
-  width: 100%;
+  /* width: 100%; */
   text-align: center;
 }
 
@@ -82,20 +82,13 @@
 #restaurant-container {
   /* border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff; */
-  
   max-width: 800px;
   order: 0;
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
 }
 
-#reviews-container {
-  width: 100%;
-}
 
-#reviews-container {
-  order: 2;
-}
 
 #reviews-container h2 {
   color: white;
@@ -167,13 +160,13 @@ form {
   box-shadow: 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12), 0 3px 5px -1px rgba(0,0,0,.2);
   display: flex;
   flex-flow: row wrap;
-  margin: 16px;
-  padding: 0;
+  margin: 0 16px;
+  width: 100%;
 }
 
 .card-title {
   align-items: center;
-  background-color:  rgb(182, 120, 7);
+  background-color:  rgb(50, 50, 50);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -182,7 +175,6 @@ form {
   width: 100%;
   font-size: 0.9rem;
 }
-
 
 .checked {
   color: orange;
@@ -241,7 +233,7 @@ form {
 .card-action {
   align-items: center;
   background-color: transparent;
-  border-top: 1px solid #e0e0e0;
+  /* border-top: 1px solid #e0e0e0; */
   color: inherit;
   display: flex;
   font-size: 16px;
@@ -257,12 +249,13 @@ form {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  color: #ccc;
+  color: #6d6d6d;
 }
 
 #input-fav:checked ~ .label-fav {
-  color: red;
+  color: rgb(220, 7, 26);
 }
+
 .label-fav:hover {
   background-color: antiquewhite;
 }
@@ -271,13 +264,14 @@ form {
   position: relative;
   float: right;
   display: block;
-  color:gray;
+  color:#6d6d6d;
   font-size: 22px;
   padding: 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  /* background: #fff; */
 }
 
 .container-rating {
@@ -310,14 +304,13 @@ form {
   color:gray;
 }
 
-
 .button {
   border-radius: 2px;
   border: none;
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   height: 36px;
   letter-spacing: 0;
@@ -353,7 +346,7 @@ form {
 }
 
 .raised {
-  background:  rgb(194, 139, 38);
+  background:  rgb(162, 107, 30);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
   color: #fff;
 }
@@ -377,44 +370,43 @@ form {
   animation: ripple 1s ease-out;
 }
 
-@media screen and (min-width: 1080px) {
-
-  #restaurant-container {
-    width: 800px;
-    order: 0;
-  }
-
-  #map-container {
-    width: 0px;
-    min-width: 400px;
-    /* order: 1; */
-    /* height: 400px; */
-    margin: auto;
-    flex: 1;
-  }
-  
-  #reviews-container {
-    width: 0px;
-    min-width: 400px;
-    order: 2;
-    margin: auto;
-    flex: 1;
-  }
-  
+#map-container {
+  order: 1;
+  margin-bottom: 16px;
 }
 
 .interactive-map {
-  width: 400px;
-  height: 200px;
+  width: 100%;
+  height: 280px;
 }
 
-.static-map {
-  /* height: 100%; */
+#reviews-container {
+  /* width: 100%; */
+  order: 2;    
+ 
 }
 
-#map-container {
-  order: 1;
+@media screen and (min-width: 1200px) {
+  
+  #reviews-container {
+    order: 1;
+    flex: 1;
+    min-width: 400px;
+  }
+  
+  #map-container {
+    order: 2;
+    flex: 1;
+    width: 0px;
+    min-width: 400px;
+
+  }
+  
 }
+
+
+
+
 
 
 
