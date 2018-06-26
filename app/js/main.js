@@ -112,22 +112,14 @@ createRestaurantHTML = (restaurant) => {
   const sourceWebp = document.createElement('source');
   sourceWebp.type = "image/webp";
   sourceWebp.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant, "webp"));
-  sourceWebp.setAttribute('class', 'lazyload');
-  // sourceWebp.className = 'restaurant-img';
-  sourceWebp.setAttribute("width", "100%");
-  sourceWebp.setAttribute("alt", "restaurant " + restaurant.name);
-  // className = 'restaurant-img';
   
   const source = document.createElement('source');
   source.media = "(min-width: 500px)";
   source.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant, "full"));
-  source.setAttribute("alt", "restaurant " + restaurant.name);
-  source.className = 'lazyload';
-  source.setAttribute("width", "100%");
   
   const image_low = document.createElement('img');
   image_low.setAttribute("data-src", DBHelper.getImageUrlForRestaurant(restaurant, "500"));
-  image_low.alt = "restaurant " + restaurant.name;
+  image_low.alt = restaurant.name + ", " + restaurant.photo_description
   image_low.className = 'lazyload';
   image_low.setAttribute("width", "100%");
   
@@ -173,51 +165,23 @@ addMarkersToInteractiveMap = (restaurants = self.restaurants) => {
   });
 }
 
-getUrlMapStatic = (ref, urlStaticMap) => {
-  var reqPictureWidth = (ref > 1280) ? 1280 : ref;
-  var reqPictureHeight = 200;
-  var scale = 1;
-  
-  if (reqPictureWidth > 640) {
-    scale = 2;
-    reqPictureWidth /= 2;
-    reqPictureHeight /= 2;
-  }
-  const urlImgMap = urlStaticMap + "&size=" + reqPictureWidth + "x" + reqPictureHeight +"&scale=" + scale;
-  console.log("url img map " + urlImgMap);
-  return urlImgMap;
-}
-
 fillStaticMapHTML = (urlStaticMap) => {
   const widthDevice = (window.innerWidth > 0) ? window.innerWidth : screen.width; 
   
-  const source1 = document.createElement('source');
-  source1.media = "(min-width: 641px)"; 
-  source1.setAttribute("data-srcset", getUrlMapStatic(960, urlStaticMap));
-  source1.setAttribute("alt", "map with restaurants");
-  source1.setAttribute("width", "100%");
-  source1.className = 'lazyload';
-  source1.setAttribute("height", "auto");
+  const src = document.createElement('source');
+  src.media = "(min-width: 800px)"; 
+  src.setAttribute("data-srcset", getUrlMapStatic(1000, urlStaticMap));
   
-  const source2 = document.createElement('source');
-  source2.media = "(min-width: 961px)"; 
-  source2.setAttribute("data-srcset", getUrlMapStatic(1280, urlStaticMap));
-  source2.setAttribute("alt", "map with restaurants");
-  source2.setAttribute("width", "100%");
-  source2.className = 'lazyload';
-  source2.setAttribute("height", "auto");
-  
-  const imgDefault = document.createElement('img');
-  imgDefault.setAttribute("data-src", getUrlMapStatic(widthDevice, urlStaticMap) );
-  imgDefault.setAttribute("width", "100%");
-  imgDefault.setAttribute("height", "auto");
-  imgDefault.alt = "map with restaurants";
-  imgDefault.className = 'lazyload';
-  
+  const img = document.createElement('img');
+  img.setAttribute("data-src", getUrlMapStatic(widthDevice, urlStaticMap) );
+  img.setAttribute("width", "100%");
+  img.setAttribute("height", "auto");
+  img.className = 'lazyload';
+  img.alt = "map with restaurants";
+
   const picture = document.createElement('picture');
-  picture.append(source1);
-  picture.append(source2);
-  picture.append(imgDefault);
+  picture.append(src);
+  picture.append(img);
   document.querySelector('.static-map').append(picture);
 }
 

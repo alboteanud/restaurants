@@ -1,9 +1,4 @@
 @charset "utf-8";
-
-@media screen and (min-width: 641px) {
-  nav h1 a {
-    font-size: 1.5em;
-  }
   
   #restaurants-list {
     grid-template-columns: repeat(2, 1fr);
@@ -15,27 +10,16 @@
   .filter-options {
     padding-bottom: 8px;
   }
-}
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 1080px) {
+  
   #restaurants-list {
     grid-template-columns: repeat(3, 1fr);
-  }
-  nav {
-    padding: 2em 0;
-  }
-  
-}
-
-@media screen and (min-width: 1280px) {
-  
-  #restaurants-list {
-    grid-template-columns: repeat(4, 1fr);
   }
   
   #map-container  {
     width: 78%; 
-    max-width: 1280px;
+    max-width: 1080px;
   }
   
   #filters {

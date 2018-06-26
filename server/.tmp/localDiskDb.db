@@ -2,9 +2,10 @@
   "data": {
     "restaurants": [
       {
-        "name": "Asian Cuisine",
+        "name": "Mission Chinese Food",
         "neighborhood": "Manhattan",
         "photograph": "1",
+        "photo_description": "classical indoor decoration",
         "address": "171 E Broadway, New York, NY 10002",
         "latlng": {
           "lat": 40.713829,
@@ -33,6 +34,7 @@
         "name": "Emily",
         "neighborhood": "Brooklyn",
         "photograph": "2",
+        "photo_description": "pizza on the menu",
         "address": "919 Fulton St, Brooklyn, NY 11238",
         "latlng": {
           "lat": 40.683555,
@@ -58,6 +60,7 @@
         "name": "Kang Ho Dong Baekjeong",
         "neighborhood": "Manhattan",
         "photograph": "3",
+        "photo_description": "clean and quiet reastaurant",
         "address": "1 E 32nd St, New York, NY 10016",
         "latlng": {
           "lat": 40.747143,
@@ -83,6 +86,7 @@
         "name": "Katz's Delicatessen",
         "neighborhood": "Manhattan",
         "photograph": "4",
+        "photo_description": "bussy corner restaurant",
         "address": "205 E Houston St, New York, NY 10002",
         "latlng": {
           "lat": 40.722216,
@@ -108,6 +112,7 @@
         "name": "Roberta's Pizza",
         "neighborhood": "Brooklyn",
         "photograph": "5",
+        "photo_description": "crowded pizza place",
         "address": "261 Moore St, Brooklyn, NY 11206",
         "latlng": {
           "lat": 40.705089,
@@ -133,6 +138,7 @@
         "name": "Hometown BBQ",
         "neighborhood": "Brooklyn",
         "photograph": "6",
+        "photo_description": "barbecue, Texas style",
         "address": "454 Van Brunt St, Brooklyn, NY 11231",
         "latlng": {
           "lat": 40.674925,
@@ -158,6 +164,7 @@
         "name": "Superiority Burger",
         "neighborhood": "Manhattan",
         "photograph": "7",
+        "photo_description": "busy street, busy restaurant",
         "address": "430 E 9th St, New York, NY 10009",
         "latlng": {
           "lat": 40.727397,
@@ -180,9 +187,10 @@
         "id": 7
       },
       {
-        "name": "Dutch Man",
+        "name": "The Dutch",
         "neighborhood": "Manhattan",
         "photograph": "8",
+        "photo_description": "restaurant under the tree",
         "address": "131 Sullivan St, New York, NY 10012",
         "latlng": {
           "lat": 40.726584,
@@ -208,6 +216,7 @@
         "name": "Mu Ramen",
         "neighborhood": "Queens",
         "photograph": "9",
+        "photo_description": "asian people eat well",
         "address": "1209 Jackson Ave, Queens, NY 11101",
         "latlng": {
           "lat": 40.743797,
@@ -233,6 +242,7 @@
         "name": "Casa Enrique",
         "neighborhood": "Queens",
         "photograph": "10",
+        "photo_description": "clean white decorations",
         "address": "5-48 49th Ave, Queens, NY 11101",
         "latlng": {
           "lat": 40.743394,
@@ -464,26 +474,6 @@
         "comments": "For a Michelin star restaurant, it's fairly priced and the food is fairly good. Started with a strawberry margarita which was good in flavor but not much alcohol. Had the chicken enchiladas with salsa verde and it was really good. Great balance in flavor and a good portion. Extra tasty with their hot sauces. My wife had the lamb but it was a bit too salty for our taste. Although, it was cooked very well and fell off the bone. The highlight of the night was the tres leches cake. Probably the best I've ever had to be honest. Not too sweet and very milky. Overall, one of my top 3 favorite Mexican in NY."
       },
       {
-        "restaurant_id": "1",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "5",
-        "comments": "nice if you like crowded places",
-        "updatedAt": 1528275294388,
-        "createdAt": "2018-06-06T08:54:54.462Z",
-        "id": 31
-      },
-      {
-        "restaurant_id": "2",
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "5",
-        "comments": "big pizzas with lots of content (:",
-        "updatedAt": 1528277126370,
-        "createdAt": "2018-06-06T09:25:26.381Z",
-        "id": 33
-      },
-      {
         "restaurant_id": 10,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
@@ -504,24 +494,64 @@
         "id": 38
       },
       {
-        "restaurant_id": 1,
+        "restaurant_id": 3,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
         "rating": "4",
-        "comments": "the candles were super cool",
-        "updatedAt": 1528833538893,
-        "createdAt": "2018-06-12T19:58:58.933Z",
-        "id": 39
+        "comments": "nice ",
+        "updatedAt": 1529680037572,
+        "createdAt": "2018-06-22T15:12:17.674Z",
+        "id": 41
+      },
+      {
+        "restaurant_id": 3,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "5",
+        "comments": "fasdfsadf",
+        "updatedAt": 1529681265113,
+        "createdAt": "2018-06-22T15:27:53.846Z",
+        "id": 42
+      },
+      {
+        "restaurant_id": 3,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "5",
+        "comments": "dan good",
+        "updatedAt": 1529681301274,
+        "createdAt": "2018-06-22T15:33:32.601Z",
+        "id": 43
       },
       {
         "restaurant_id": 1,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
-        "rating": "",
-        "comments": "",
-        "updatedAt": 1529575081460,
-        "createdAt": "2018-06-21T09:58:01.559Z",
-        "id": 40
+        "rating": "4",
+        "comments": "145",
+        "createdAt": 1529826692749,
+        "updatedAt": 1529826692749,
+        "id": 69
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "4",
+        "comments": "dan146",
+        "createdAt": 1529827346946,
+        "updatedAt": 1529827346946,
+        "id": 70
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "5",
+        "comments": "dan147",
+        "createdAt": 1529933987768,
+        "updatedAt": 1529933987768,
+        "id": 71
       }
     ]
   },
@@ -534,10 +564,10 @@
         "unique": true
       },
       "createdAt": {
-        "type": "datetime"
+        "type": "timestamp"
       },
       "updatedAt": {
-        "type": "datetime"
+        "type": "timestamp"
       }
     },
     "restaurants": {
@@ -577,7 +607,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 40
+      "id": 71
     }
   }
 }

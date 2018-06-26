@@ -10,24 +10,14 @@ p {
   width: 100%;
 }
 
-a {
-  color: #074780;
-  text-decoration: none;
-}
 
-a:hover,
-a:focus {
-  color: #3397db;
-  text-decoration: none;
-}
-
-a img {
+/* a img {
   border: none 0px #fff;
   max-width: 100%;
-}
+} */
 
 .interactive-map {
-  height: 180px;
+  height: 200px;
   width: 100%;
 }
 
@@ -81,8 +71,7 @@ a img {
 
 #restaurants-list {
   background-color: #f3f3f3;
-  margin: 0 auto 30px;
-  padding: 6px;
+  padding: 0;
   display: grid;
   grid-auto-rows: minmax(200px, auto);
   grid-gap: 30px;
@@ -98,11 +87,6 @@ a img {
   overflow: hidden;
   position: relative;
   padding-bottom: 8px;
-}
-
-#restaurants-list .restaurant-img {
-  max-width: 100%;
-  width: 100%;
 }
 
 #restaurants-list li h2 {

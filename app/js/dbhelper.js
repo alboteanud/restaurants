@@ -8,14 +8,6 @@ class DBHelper {
     return 'restaurants';
   }
   
-  static get INDEX_CUISINE() {
-    return 'cuisine_type';
-  }
-  
-  static get INDEX_NEIGHBORHOOD() {
-    return 'neighborhood';
-  }
-  
   static get OBJ_ST_REVIEWS() {
     return 'reviews';
   }
@@ -28,9 +20,16 @@ class DBHelper {
     if (!('indexedDB' in window)) {return null;}
     console.log('data to be added to the store: ' + data.length);
     DBHelper.getObjStore(objStore, 'readwrite')
-    .then(store => Promise.all(data.map(aData => store.put(aData)))
-  )
-  .catch(e => console.log(e))
+    .then((store) => { 
+      Promise.all(data.map(aData => { 
+        store.put(aData);
+      }
+    )
+  );
+  // debugger;
+}
+)
+.catch(e => console.log(e))
 }
 
 static getDB() {
@@ -39,11 +38,13 @@ static getDB() {
     if (!upgradeDb.objectStoreNames.contains(DBHelper.OBJ_ST_RESTAURANTS)) {
       const eventsOS = upgradeDb.createObjectStore(DBHelper.OBJ_ST_RESTAURANTS, { keyPath: 'id'});
       const store = upgradeDb.transaction.objectStore(DBHelper.OBJ_ST_RESTAURANTS);
-      store.createIndex('by-cuisine', DBHelper.INDEX_CUISINE);
-      store.createIndex('by-neighborhood', DBHelper.INDEX_NEIGHBORHOOD);
+      store.createIndex('by-cuisine', 'cuisine_type');
+      store.createIndex('by-neighborhood', 'neighborhood');
     }
     if (!upgradeDb.objectStoreNames.contains(DBHelper.OBJ_ST_REVIEWS)) {
       const eventsOS = upgradeDb.createObjectStore(DBHelper.OBJ_ST_REVIEWS, {keyPath: 'id'});
+      const store = upgradeDb.transaction.objectStore(DBHelper.OBJ_ST_REVIEWS);
+      store.createIndex('by-restaurant', 'restaurant_id');
     }
   });
 }
@@ -79,7 +80,7 @@ static fetchRestaurantByCuisine(cuisine, callback) {
     if (error) {
       callback(error, null);
     } else {
-      callback(null, results);
+      callback(null, restaurants);
     }
   });
 }
@@ -89,7 +90,7 @@ static fetchRestaurantByNeighborhood(neighborhood, callback) {
     if (error) {
       callback(error, null);
     } else {
-      callback(null, results);
+      callback(null, restaurants);
     }
   });
 }
@@ -220,10 +221,9 @@ static fetchReviewsData(restaurantID, callback) {
   
   // get from DB
   DBHelper.getObjStore(DBHelper.OBJ_ST_REVIEWS, 'readonly')
-  .then(store => store.getAll())
+  .then(store => store.index('by-restaurant').getAllKeys(restaurantID))
   .then(data => {
     if (data && !callbackDone) {
-      console.log('callback from IDB');
       callbackDone = true;
       callback(null, data)
     }
@@ -247,6 +247,12 @@ static fetchReviewsData(restaurantID, callback) {
     })
   })
   .catch(error => callback(error, null));
+}
+
+static deleteReview(id){
+  fetch(DBHelper.URL_SERVER + '/reviews/' + id, {method: 'DELETE'});
+  DBHelper.getObjStore(DBHelper.OBJ_ST_REVIEWS, 'readwrite')
+  .then(store => store.delete(id))
 }
 
 
