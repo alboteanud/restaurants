@@ -3,14 +3,13 @@
 
 ## To run 
 
-cd restaurants                       <br>
+cd restaurants                     
 npm i                                
 <br>
 
 cd server                            
-<br>
 npm i 
-
+<br>
 
 cd .. 
 (we are back into 'restaurants' directory)   
