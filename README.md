@@ -3,25 +3,29 @@
 
 ## To run 
 
-cd restaurants                     
-npm i                                
-<br>
+cd restaurants   
 
-cd server                            
+npm i                                
+
+
+cd server    
+
 npm i 
-<br>
+
 
 cd restaurants 
+
 npm i 
-<br>
+
 
 cd server 
+
 npm i 
-<br>
+
 
 cd .. 
 (we are back into 'restaurants' directory)   
-<br>
+
 
 npm start
 

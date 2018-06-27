@@ -47,13 +47,13 @@ if( 'function' === typeof importScripts) {
       });
       
       workbox.routing.registerRoute(
-        DBHelper.URL_SERVER + '/reviews/',
+        'http://localhost:8000/reviews/',
         new workbox.strategies.NetworkOnly({ plugins: [bgSyncPlugin]}),
         'POST'
       );
       
       workbox.routing.registerRoute(
-        DBHelper.URL_SERVER + '/reviews/',
+        'http://localhost:8000/reviews/',
         new workbox.strategies.NetworkOnly({ plugins: [bgSyncPluginDelete]}),
         'DELETE'
       );

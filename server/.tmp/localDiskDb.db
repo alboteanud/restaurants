@@ -552,6 +552,16 @@
         "createdAt": 1529933987768,
         "updatedAt": 1529933987768,
         "id": 71
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "4",
+        "comments": "sweet",
+        "createdAt": 1530131782980,
+        "updatedAt": 1530131782980,
+        "id": 72
       }
     ]
   },
@@ -607,7 +617,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 71
+      "id": 72
     }
   }
 }

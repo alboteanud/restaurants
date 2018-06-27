@@ -32,16 +32,16 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   
   const sourceWebp = document.createElement('source');
   sourceWebp.type = "image/webp";
-  sourceWebp.srcset = DBHelper.getImageUrlForRestaurant(restaurant, "webp");
+  sourceWebp.srcset = DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_WEBP);
   sourceWebp.media = "(min-width: 500px)";
   
   const source = document.createElement('source');
   source.media = "(min-width: 500px)";
-  source.srcset = DBHelper.getImageUrlForRestaurant(restaurant, "full");
+  source.srcset = DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_IMG_NORMAL);
   
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.getImageUrlForRestaurant(restaurant, "500");
+  image.src = DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_IMG_500);
   image.alt = restaurant.name + ", " + restaurant.photo_description;
   
   const picture = document.getElementById('restaurant-pic');
