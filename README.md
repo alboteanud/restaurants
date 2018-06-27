@@ -4,9 +4,11 @@
 ## To run 
 
 cd restaurants                       <br>
-npm i                                <br>
+npm i                                
+<br>
 
-cd server                            <br>
+cd server                            
+<br>
 npm i 
 
 
