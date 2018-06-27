@@ -268,7 +268,9 @@ loadMapInteractive = () => {
 }
 
 
-// the following code help with lazy loading images. Credit to https://github.com/deanhume/lazy-observer-load/blob/master/lazy-load.js
+// the following code help with lazy loading images 
+// Credit to https://github.com/deanhume/lazy-observer-load/blob/master/lazy-load.js
+// TODO reduce boilerplate or move in new file this code
 
 var images, imageCount, observer;
 
