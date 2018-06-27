@@ -3,13 +3,10 @@
 
 ## To run 
 
-cd restaurants 
+cd restaurants                       <br>
+npm i                                <br>
 
-npm i 
-
-
-cd server 
-
+cd server                            <br>
 npm i 
 
 
