@@ -13,19 +13,19 @@ npm i
 
 cd restaurants 
 npm i 
-
+<br>
 
 cd server 
 npm i 
-
+<br>
 
 cd .. 
 (we are back into 'restaurants' directory)   
-
+<br>
 
 npm start
 
-open browser at http://localhost:8000/
+go to http://localhost:8000/  to see the website
 
 
 Notes:
