@@ -11,6 +11,14 @@ cd server
 npm i 
 <br>
 
+cd restaurants 
+npm i 
+
+
+cd server 
+npm i 
+
+
 cd .. 
 (we are back into 'restaurants' directory)   
 
