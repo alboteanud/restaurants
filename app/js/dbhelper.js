@@ -1,20 +1,14 @@
 class DBHelper {
   
-  static get DATABASE_NAME() {
-    return 'my-database';
-  }
-  
-  static get OBJ_ST_RESTAURANTS() {
-    return 'restaurants';
-  }
-  
-  static get OBJ_ST_REVIEWS() {
-    return 'reviews';
-  }
-  
-  static get URL_SERVER() {
-    return 'http://localhost:1337';
-  }
+  static get DATABASE_NAME() { return 'my-database'; }
+  static get OBJ_ST_RESTAURANTS() {  return 'restaurants'; }
+  static get OBJ_ST_REVIEWS() { return 'reviews'; }
+  static get URL_STATIC_SERVER() { return 'http://localhost:8000'; }
+  static get URL_SERVER() { return 'http://localhost:1337'; }
+  static get TYPE_THUMBNAIL() {return 0;} 
+  static get TYPE_WEBP() {return 1;} 
+  static get TYPE_IMG_500() {return 2;} 
+  static get TYPE_IMG_NORMAL() {return 3;} 
   
   static addToDB(data, objStore) {
     if (!('indexedDB' in window)) {return null;}
@@ -144,14 +138,13 @@ static buildUrlForRestaurant(restaurant) {
   return (`./restaurant.html?id=${restaurant.id}`);
 }
 
-static getImageUrlForRestaurant(restaurant, type) {
-  if (type === "500") {
-    return (`/img/${restaurant.photograph}-500.jpg`);
+static getImageUrlForRestaurant(id, type) {
+  switch(type){
+    case DBHelper.TYPE_THUMBNAIL: return `/img/${id}_tn.jpg`;
+    case DBHelper.TYPE_IMG_500: return `/img/${id}-500.jpg`;
+    case DBHelper.TYPE_WEBP: return `/img/${id}.webp`;
+    default: return `/img/${id}.jpg`;
   }
-  if (type === "webp") {
-    return (`/img/${restaurant.photograph}.webp`);
-  }
-  return (`/img/${restaurant.photograph}.jpg`);
 }
 
 static getMapMarkerForRestaurant(restaurant, map) {

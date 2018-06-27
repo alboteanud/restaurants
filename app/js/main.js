@@ -104,24 +104,32 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   }
   fillStaticMapHTML(urlStaticMap); 
   addMarkersToInteractiveMap(); 
+
+  var js = document.createElement("script");
+  js.type = "text/javascript";
+  js.src = DBHelper.URL_STATIC_SERVER + "/js/lazy-observer-load.js" ;
+  document.body.appendChild(js);
+
 }
+
 
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
   
   const sourceWebp = document.createElement('source');
   sourceWebp.type = "image/webp";
-  sourceWebp.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant, "webp"));
+  sourceWebp.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_WEBP));
   
   const source = document.createElement('source');
   source.media = "(min-width: 500px)";
-  source.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant, "full"));
+  source.setAttribute("data-srcset", DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_IMG_NORMAL));
   
   const image_low = document.createElement('img');
-  image_low.setAttribute("data-src", DBHelper.getImageUrlForRestaurant(restaurant, "500"));
+  image_low.setAttribute("data-src", DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_IMG_500));
   image_low.alt = restaurant.name + ", " + restaurant.photo_description
-  image_low.className = 'lazyload';
-  image_low.setAttribute("width", "100%");
+  // image_low.className = 'lazyload';
+  image_low.className = 'js-lazy-image centered';
+  image_low.src = DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_THUMBNAIL)
   
   const picture = document.createElement('picture');
   picture.className = 'restaurant-img';
@@ -146,9 +154,7 @@ createRestaurantHTML = (restaurant) => {
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
   li.append(address);
-  
   li.style.border = ("2px solid " + restaurant.color);
-  
   return li;
 };
 
@@ -173,16 +179,16 @@ fillStaticMapHTML = (urlStaticMap) => {
   src.setAttribute("data-srcset", getUrlMapStatic(1000, urlStaticMap));
   
   const img = document.createElement('img');
-  img.setAttribute("data-src", getUrlMapStatic(widthDevice, urlStaticMap) );
-  img.setAttribute("width", "100%");
-  img.setAttribute("height", "auto");
+  img.setAttribute("data-srcset", getUrlMapStatic(widthDevice, urlStaticMap));
+  img.style.width = "100%";
+  img.style.height = "auto";
   img.className = 'lazyload';
   img.alt = "map with restaurants";
 
-  const picture = document.createElement('picture');
-  picture.append(src);
-  picture.append(img);
-  document.querySelector('.static-map').append(picture);
+  const pictureStaticMap = document.createElement('picture');
+  pictureStaticMap.append(src);
+  pictureStaticMap.append(img);
+  document.querySelector('.static-map').append(pictureStaticMap);
 }
 
 // add to home button
@@ -234,7 +240,7 @@ toggleMapStyle = () => {
   } 
   else {
     if(!self.map) {
-      // TODO add a loading element here
+      // TODO add a loading element 
       loadMapInteractive();
     } else {
       staticMap.style.display = "none";

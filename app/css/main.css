@@ -107,4 +107,23 @@ p {
   line-height: 1.3em;
 }
 
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 1.3s;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-fill-mode: forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.centered {
+  display:block;
+  margin:0 auto;
+  width: 100%;
+}
 

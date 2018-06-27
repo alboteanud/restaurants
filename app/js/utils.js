@@ -26,26 +26,17 @@ getParameterByName = (name, url) => {
 }
 
 // we can request a max 640px map for the free Gmaps account
-// but we can ask scale = 2 ==> 1280px
+// but we can ask scale = 2 ==> 1280px 
 getUrlMapStatic = (refW, urlStaticMap) => {
-
-    if (refW > 1280) {
+    var scale = 1;
+    var reqPictureWidth = refW;
+    
+    if (refW > 640) {
+        reqPictureWidth = parseInt(refW/2);
         scale = 2;
-        reqPictureWidth = 640;
-        reqPictureHeight = 100;
     }
-    else if (refW > 640) {
-        scale = 2;
-        reqPictureWidth = refW/2;
-        reqPictureHeight = 100;
-    }
-    else {
-        scale = 1;
-        reqPictureWidth = refW;
-        reqPictureHeight = 200;
-    }
-
-    const urlImgMap = urlStaticMap + "&size=" + reqPictureWidth + "x" + reqPictureHeight +"&scale=" + scale;
-    console.log("url img map " + urlImgMap);
+    
+    const urlImgMap = urlStaticMap + "&size=" + reqPictureWidth + "x120&scale=" + scale;
+    console.log("url static map: " + urlImgMap);
     return urlImgMap;
 }
