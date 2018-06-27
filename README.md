@@ -4,12 +4,10 @@
 ## To run 
 
 cd restaurants 
-
 npm i 
 
 
 cd server 
-
 npm i 
 
 
