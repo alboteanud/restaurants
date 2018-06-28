@@ -135,7 +135,7 @@ createRestaurantHTML = (restaurant) => {
   picture.append(image_low);
   
   const a = document.createElement('a');
-  a.href = DBHelper.buildUrlForRestaurant(restaurant);  
+  a.href = `./restaurant.html?id=${restaurant.id}`;  
   
   a.append(picture);
   li.append(a);
@@ -173,10 +173,10 @@ fillStaticMapHTML = (urlStaticMap) => {
   
   const src = document.createElement('source');
   src.media = "(min-width: 800px)"; 
-  src.setAttribute("data-srcset", getUrlMapStatic(1000, urlStaticMap));
+  src.setAttribute("data-srcset", DBHelper.getUrlMapStatic(1000, urlStaticMap));
   
   const img = document.createElement('img');
-  img.setAttribute("data-srcset", getUrlMapStatic(widthDevice, urlStaticMap));
+  img.setAttribute("data-srcset", DBHelper.getUrlMapStatic(widthDevice, urlStaticMap));
   img.style.width = "100%";
   img.style.height = "auto";
   img.className = 'lazyload';

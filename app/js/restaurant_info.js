@@ -3,7 +3,7 @@ var auth2, googleUser, restaurant, map;
 (fetchRestaurantFromURL = (callback) => {
   if (self.restaurant) {  return; }
   
-  const id = getParameterByName('id');
+  const id = DBHelper.getParameterByName('id');
   if (!id) { // no id found in URL
     error = 'No restaurant id in URL'
     callback(error, null);
@@ -179,7 +179,7 @@ addAndPostEvent = (e) => {
     email: googleUser.getBasicProfile().getEmail(),
     rating: document.getElementById("myForm").elements.namedItem("rating-input-1").value,
     comments: document.getElementById('comment').value,
-    createdAt: Date.now(),
+    createdAt: Date.now(),  // this should have been done by server but will not be a timestamp but a date-time
     updatedAt: Date.now()
   };
   
@@ -328,10 +328,10 @@ fillStaticMapHTML = (restaurant = self.restaurant) => {
   
   const src = document.createElement('source');
   src.media = "(min-width: 800px)"; 
-  src.setAttribute("data-srcset", getUrlMapStatic(1280, urlStaticMap));
+  src.setAttribute("data-srcset", DBHelper.getUrlMapStatic(1280, urlStaticMap));
   
   const imgDefault = document.createElement('img');
-  imgDefault.setAttribute("data-src", getUrlMapStatic(widthDevice, urlStaticMap) );
+  imgDefault.setAttribute("data-src", DBHelper.getUrlMapStatic(widthDevice, urlStaticMap) );
   imgDefault.setAttribute("width", "100%");
   // imgDefault.setAttribute("height", "auto");
   imgDefault.alt = "map with restaurants";
