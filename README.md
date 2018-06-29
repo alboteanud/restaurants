@@ -27,6 +27,8 @@ Visit the site at:
 
 ![Restaurant list](/app/screenshots/screen1.jpg?raw=true "Restaurant list")   
 
+![Restaurant list](/app/screenshots/screen2.jpg?raw=true "Restaurant details")   
+
 
 
 
