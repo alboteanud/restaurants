@@ -1,16 +1,10 @@
 @charset "utf-8";
 
-
-
-
 @media screen and (min-width: 800px) {
   #restaurants-list {
     grid-template-columns: repeat(2, 1fr);
   }
-  .interactive-map {
-    /* width: ; */
-    /* height: 200px; */
-  }
+ 
   .filter-options {
     padding-bottom: 8px;
   }
