@@ -9,12 +9,11 @@ cd server
 npm i 
 
 
-cd restaurants 
+cd restaurants >
 npm i 
 
-cd server 
+cd server > 
 npm i 
-
 
 cd .. 
 (we are back into 'restaurants' directory)   
@@ -23,7 +22,7 @@ npm start
 
 Visit the site at:
  http://localhost:8000/  
- 
+
 
 
 ## Notes:
