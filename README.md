@@ -10,7 +10,7 @@ npm i
 
 
 cd .. 
-(we are into 'restaurants')   
+(we are inside 'restaurants' folder)   
 
 npm start
 
