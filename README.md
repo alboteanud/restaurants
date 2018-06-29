@@ -9,14 +9,8 @@ cd server
 npm i 
 
 
-cd restaurants >
-npm i 
-
-cd server > 
-npm i 
-
 cd .. 
-(we are back into 'restaurants' directory)   
+(we are into 'restaurants')   
 
 npm start
 
@@ -27,8 +21,8 @@ Visit the site at:
 
 ## Notes:
 
-- Disable Internet Access completely in order to test "put review offline" 
-(Dev tools offline will not be enough)
+- Disable Internet Access completely in order to test "put review while offline" 
+(Dev tools offline will not be enough - using workbox)
 
 
 ![Restaurant list](/app/screenshots/screen1.jpg?raw=true "Restaurant list")   
