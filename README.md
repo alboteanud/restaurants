@@ -21,8 +21,8 @@ Visit the site at:
 
 ## Notes:
 
-- Disable Internet Access completely in order to test "put review while offline" 
-(Dev tools offline will not be enough - using workbox)
+- Disable Internet Access completely in order to test "make a review while offline" 
+(Not only from Dev tools. We are using 'workbox'.)
 
 
 ![Restaurant list](/app/screenshots/screen1.jpg?raw=true "Restaurant list")   
