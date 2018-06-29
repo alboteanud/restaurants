@@ -21,6 +21,15 @@
           "Saturday": "12:00 pm - 4:00 pm, 5:30 pm - 12:00 am",
           "Sunday": "12:00 pm - 4:00 pm, 5:30 pm - 11:00 pm"
         },
+        "createdAt": 1504095563444,
+        "updatedAt": "2018-06-21T10:08:41.981Z",
+        "id": 1,
+        "is_favorite": "true",
+        "restaurant_id": "1",
+        "rating": "5",
+        "color": "#FF5733",
+        "comments": "nice _test"
+      },
       {
         "name": "Emily",
         "neighborhood": "Brooklyn",
@@ -31,6 +40,22 @@
           "lat": 40.683555,
           "lng": -73.966393
         },
+        "cuisine_type": "Pizza",
+        "operating_hours": {
+          "Monday": "5:30 pm - 11:00 pm",
+          "Tuesday": "5:30 pm - 11:00 pm",
+          "Wednesday": "5:30 pm - 11:00 pm",
+          "Thursday": "5:30 pm - 11:00 pm",
+          "Friday": "5:30 pm - 11:00 pm",
+          "Saturday": "5:00 pm - 11:30 pm",
+          "Sunday": "12:00 pm - 3:00 pm, 5:00 pm - 11:00 pm"
+        },
+        "createdAt": 1504095568414,
+        "updatedAt": "2018-06-15T21:06:22.383Z",
+        "is_favorite": "true",
+        "color": "#60c36e",
+        "id": 2
+      },
       {
         "name": "Kang Ho Dong Baekjeong",
         "neighborhood": "Manhattan",
@@ -41,6 +66,22 @@
           "lat": 40.747143,
           "lng": -73.985414
         },
+        "cuisine_type": "Asian",
+        "operating_hours": {
+          "Monday": "11:30 am - 2:00 am",
+          "Tuesday": "11:30 am - 2:00 am",
+          "Wednesday": "11:30 am - 2:00 am",
+          "Thursday": "11:30 am - 2:00 am",
+          "Friday": "11:30 am - 6:00 am",
+          "Saturday": "11:30 am - 6:00 am",
+          "Sunday": "11:30 am - 2:00 am"
+        },
+        "createdAt": 1504095571434,
+        "updatedAt": "2018-06-09T13:09:49.108Z",
+        "id": 3,
+        "color": "#FFC300",
+        "is_favorite": "true"
+      },
       {
         "name": "Katz's Delicatessen",
         "neighborhood": "Manhattan",
@@ -51,6 +92,22 @@
           "lat": 40.722216,
           "lng": -73.987501
         },
+        "cuisine_type": "American",
+        "operating_hours": {
+          "Monday": "8:00 am - 10:30 pm",
+          "Tuesday": "8:00 am - 10:30 pm",
+          "Wednesday": "8:00 am - 10:30 pm",
+          "Thursday": "8:00 am - 2:30 am",
+          "Friday": "8:00 am - Sat",
+          "Saturday": "Open 24 hours",
+          "Sunday": "Sat - 10:30 pm"
+        },
+        "createdAt": 1504095567091,
+        "updatedAt": "2018-06-13T10:57:40.138Z",
+        "is_favorite": "true",
+        "color": "#581845",
+        "id": 4
+      },
       {
         "name": "Roberta's Pizza",
         "neighborhood": "Brooklyn",
@@ -98,7 +155,7 @@
           "Sunday": "12:00 pm - 9:00 pm"
         },
         "createdAt": 1504095567071,
-        "updatedAt": "1504095567183",
+        "updatedAt": "2018-06-21T09:23:25.781Z",
         "is_favorite": "false",
         "color": "#2874A6",
         "id": 6
@@ -202,7 +259,7 @@
           "Sunday": "11:00 am - 12:00 am"
         },
         "createdAt": 1504095567183,
-        "updatedAt": "1504095567183",
+        "updatedAt": "2018-06-09T13:06:52.480Z",
         "is_favorite": "false",
         "color": "#3c3b6e",
         "id": 10
@@ -417,44 +474,74 @@
         "comments": "For a Michelin star restaurant, it's fairly priced and the food is fairly good. Started with a strawberry margarita which was good in flavor but not much alcohol. Had the chicken enchiladas with salsa verde and it was really good. Great balance in flavor and a good portion. Extra tasty with their hot sauces. My wife had the lamb but it was a bit too salty for our taste. Although, it was cooked very well and fell off the bone. The highlight of the night was the tres leches cake. Probably the best I've ever had to be honest. Not too sweet and very milky. Overall, one of my top 3 favorite Mexican in NY."
       },
       {
-        "restaurant_id": 1,
+        "restaurant_id": 10,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
-        "rating": "4",
-        "comments": "145",
-        "createdAt": 1529826692749,
-        "updatedAt": 1529826692749,
-        "id": 69
+        "rating": "",
+        "comments": "dfzfsdf",
+        "updatedAt": 1528549309983,
+        "createdAt": "2018-06-09T13:01:49.997Z",
+        "id": 37
       },
       {
-        "restaurant_id": 1,
+        "restaurant_id": 10,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
         "rating": "4",
-        "comments": "dan146",
-        "createdAt": 1529827346946,
-        "updatedAt": 1529827346946,
-        "id": 70
+        "comments": "fzdsfdzs",
+        "updatedAt": 1528549333021,
+        "createdAt": "2018-06-09T13:02:13.032Z",
+        "id": 38
+      },
+      {
+        "restaurant_id": 3,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "4",
+        "comments": "nice ",
+        "updatedAt": 1529680037572,
+        "createdAt": "2018-06-22T15:12:17.674Z",
+        "id": 41
+      },
+      {
+        "restaurant_id": 3,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "5",
+        "comments": "fasdfsadf",
+        "updatedAt": 1529681265113,
+        "createdAt": "2018-06-22T15:27:53.846Z",
+        "id": 42
+      },
+      {
+        "restaurant_id": 3,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "5",
+        "comments": "dan good",
+        "updatedAt": 1529681301274,
+        "createdAt": "2018-06-22T15:33:32.601Z",
+        "id": 43
+      },
+      {
+        "restaurant_id": 2,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "5",
+        "comments": "nice",
+        "createdAt": 1530259847307,
+        "updatedAt": 1530259847307,
+        "id": 73
       },
       {
         "restaurant_id": 1,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
         "rating": "5",
-        "comments": "dan147",
-        "createdAt": 1529933987768,
-        "updatedAt": 1529933987768,
-        "id": 71
-      },
-      {
-        "restaurant_id": 1,
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "4",
-        "comments": "sweet",
-        "createdAt": 1530131782980,
-        "updatedAt": 1530131782980,
-        "id": 72
+        "comments": "seet",
+        "createdAt": 1530259862276,
+        "updatedAt": 1530259862276,
+        "id": 74
       }
     ]
   },
@@ -510,7 +597,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 72
+      "id": 74
     }
   }
 }

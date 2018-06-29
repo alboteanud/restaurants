@@ -74,7 +74,6 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   }
 }
 
-// http://localhost:1337/reviews/?restaurant_id=<restaurant_id>
 fetchReviews = (restaurant = self.restaurant) => {
   // DBHelper.fetchAndStore(DBHelper.OBJ_ST_REVIEWS, `/reviews/?restaurant_id=` + id, (error, jsonResponse) => {
   DBHelper.fetchReviewsData(restaurant.id, (error, responseReviews) => {
@@ -168,7 +167,6 @@ fillBreadcrumb = (restaurant = self.restaurant) => {
   breadcrumb.appendChild(li);
 }
 
-
 addAndPostEvent = (e) => {
   // Notification.requestPermission();
   e.preventDefault();
@@ -216,7 +214,7 @@ initSigninV2 = () => {
   refreshUserValues();
 };
 
-signinChanged = (val) => {  // val = true/false
+signinChanged = (val) => {  // true/false
   
   if(val) { // UI for Signed In user
     var postButton = document.getElementById('add-review-button');
@@ -276,7 +274,6 @@ capitalizeFirstLetter = (targetString) => {
   return targetString.charAt(0).toUpperCase() + targetString.slice(1);
 }
 
-// PUT http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=true
 setFavorite = () => {
   const checkBox = document.getElementById("input-fav");
   const url = DBHelper.URL_SERVER + "/restaurants/" + restaurant.id + "/?is_favorite=" + checkBox.checked;
@@ -292,7 +289,7 @@ toggleMapStyle = () => {
   } 
   else {
     if(!self.map) {
-      // TODO add a loading element here
+      // TODO add a loading animation
       loadMapInteractive();
     } else {
       staticMap.style.display = "none";
@@ -307,12 +304,10 @@ loadMapInteractive = () => {
   document.body.appendChild(script);
 }
 
-initInteractiveMap = () => {      
-  // const mapBound = getMapBound();            
+initInteractiveMap = () => {              
   self.map = new google.maps.Map(document.querySelector('.interactive-map'), {
     zoom: 14,
     center: self.restaurant.latlng,
-    // center: {lat: -34.397, lng: 150.644},
     scrollwheel: false
   });   
   DBHelper.getMapMarkerForRestaurant(restaurant, self.map);
@@ -341,7 +336,5 @@ fillStaticMapHTML = (restaurant = self.restaurant) => {
   picture.append(src);
   picture.append(imgDefault);
   document.querySelector('.static-map').append(picture);
+  document.getElementById('btn-toggle-map').style.display = "block";
 }
-
-
-

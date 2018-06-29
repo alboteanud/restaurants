@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
   fetchNeighborhoods();
   fetchCuisines();
+  updateRestaurants();
 });
 
 // Fetch all neighborhoods and set their HTML.
@@ -72,9 +73,6 @@ updateRestaurants = () => {
     }
   })
 }      
-
-updateRestaurants();
-
 
 resetRestaurants = (restaurants) => {
   console.log('resetRestaurants() in main.js');
@@ -186,6 +184,7 @@ fillStaticMapHTML = (urlStaticMap) => {
   pictureStaticMap.append(src);
   pictureStaticMap.append(img);
   document.querySelector('.static-map').append(pictureStaticMap);
+  document.getElementById('btn-toggle-map').style.display = "block";
 }
 
 // add to home button
@@ -270,7 +269,7 @@ loadMapInteractive = () => {
 
 // the following code help with lazy loading images 
 // Credit to https://github.com/deanhume/lazy-observer-load/blob/master/lazy-load.js
-// TODO reduce boilerplate or move in new file this code
+// TODO reduce or move code
 
 var images, imageCount, observer;
 
@@ -295,8 +294,6 @@ setLazyLoading = () => {
       disconnect();
     }
     
-    
-    // foreach() is not supported in IE
     for (let i = 0; i < images.length; i++) { 
       let image = images[i];
       if (image.classList.contains('js-lazy-image--handled')) {
@@ -308,11 +305,6 @@ setLazyLoading = () => {
   }
 }
 
-
-/**
-* Fetchs the image for the given URL
-* @param {string} url 
-*/
 function fetchImage(url) {
   return new Promise((resolve, reject) => {
     const image = new Image();
@@ -322,10 +314,6 @@ function fetchImage(url) {
   });
 }
 
-/**
-* Preloads the image
-* @param {object} image 
-*/
 function preloadImage(image) {
   const src = image.dataset.src;
   if (!src) {
@@ -335,21 +323,14 @@ function preloadImage(image) {
   return fetchImage(src).then(() => { applyImage(image, src); });
 }
 
-/**
-* Load all of the images immediately
-* @param {NodeListOf<Element>} images 
-*/
 function loadImagesImmediately(images) {
-  // foreach() is not supported in IE
   for (let i = 0; i < images.length; i++) { 
     let image = images[i];
     preloadImage(image);
   }
 }
 
-/**
-* Disconnect the observer
-*/
+
 function disconnect() {
   if (!observer) {
     return;
@@ -358,10 +339,7 @@ function disconnect() {
   observer.disconnect();
 }
 
-/**
-* On intersection
-* @param {array} entries 
-*/
+
 function onIntersection(entries) {
   // Disconnect if we've already loaded all of the images
   if (imageCount === 0) {
@@ -382,11 +360,6 @@ function onIntersection(entries) {
   }
 }
 
-/**
-* Apply the image
-* @param {object} img 
-* @param {string} src 
-*/
 function applyImage(img, src) {
   // Prevent this from being lazy loaded a second time.
   img.classList.add('js-lazy-image--handled');

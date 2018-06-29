@@ -109,7 +109,7 @@ p {
 
 .fade-in {
   animation-name: fadeIn;
-  animation-duration: 2.2s;
+  animation-duration: 1.5s;
   animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
   animation-fill-mode: forwards;
 }
