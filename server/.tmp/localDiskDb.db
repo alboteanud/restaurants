@@ -181,8 +181,8 @@
           "Sunday": "11:30 am - 10:00 pm"
         },
         "createdAt": 1504095567091,
-        "updatedAt": 1504095567091,
-        "is_favorite": false,
+        "updatedAt": "2018-06-29T10:41:15.366Z",
+        "is_favorite": "true",
         "color": "#009fdb",
         "id": 7
       },
@@ -474,56 +474,6 @@
         "comments": "For a Michelin star restaurant, it's fairly priced and the food is fairly good. Started with a strawberry margarita which was good in flavor but not much alcohol. Had the chicken enchiladas with salsa verde and it was really good. Great balance in flavor and a good portion. Extra tasty with their hot sauces. My wife had the lamb but it was a bit too salty for our taste. Although, it was cooked very well and fell off the bone. The highlight of the night was the tres leches cake. Probably the best I've ever had to be honest. Not too sweet and very milky. Overall, one of my top 3 favorite Mexican in NY."
       },
       {
-        "restaurant_id": 10,
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "",
-        "comments": "dfzfsdf",
-        "updatedAt": 1528549309983,
-        "createdAt": "2018-06-09T13:01:49.997Z",
-        "id": 37
-      },
-      {
-        "restaurant_id": 10,
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "4",
-        "comments": "fzdsfdzs",
-        "updatedAt": 1528549333021,
-        "createdAt": "2018-06-09T13:02:13.032Z",
-        "id": 38
-      },
-      {
-        "restaurant_id": 3,
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "4",
-        "comments": "nice ",
-        "updatedAt": 1529680037572,
-        "createdAt": "2018-06-22T15:12:17.674Z",
-        "id": 41
-      },
-      {
-        "restaurant_id": 3,
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "5",
-        "comments": "fasdfsadf",
-        "updatedAt": 1529681265113,
-        "createdAt": "2018-06-22T15:27:53.846Z",
-        "id": 42
-      },
-      {
-        "restaurant_id": 3,
-        "name": "Dan",
-        "email": "alboteanud@gmail.com",
-        "rating": "5",
-        "comments": "dan good",
-        "updatedAt": 1529681301274,
-        "createdAt": "2018-06-22T15:33:32.601Z",
-        "id": 43
-      },
-      {
         "restaurant_id": 2,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
@@ -534,14 +484,24 @@
         "id": 73
       },
       {
-        "restaurant_id": 1,
+        "restaurant_id": 2,
         "name": "Dan",
         "email": "alboteanud@gmail.com",
         "rating": "5",
-        "comments": "seet",
-        "createdAt": 1530259862276,
-        "updatedAt": 1530259862276,
-        "id": 74
+        "comments": "nice big pizza",
+        "createdAt": 1530264954449,
+        "updatedAt": 1530264954449,
+        "id": 75
+      },
+      {
+        "restaurant_id": 1,
+        "name": "Dan",
+        "email": "alboteanud@gmail.com",
+        "rating": "4",
+        "comments": "classic restaurant decorations are super cool",
+        "createdAt": 1530268836421,
+        "updatedAt": 1530268836421,
+        "id": 76
       }
     ]
   },
@@ -597,7 +557,7 @@
       "id": 10
     },
     "reviews": {
-      "id": 74
+      "id": 76
     }
   }
 }

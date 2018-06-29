@@ -10,14 +10,20 @@ var auth2, googleUser, restaurant, map;
   } else {
     DBHelper.fetchRestaurantById(id, (error, restaurant) => {
       self.restaurant = restaurant;
+      
       if (!restaurant) {
         console.error(error);
         return;
       }
-      fillRestaurantHTML();
-      fillBreadcrumb();
-      fillStaticMapHTML();
-      fetchReviews();
+      
+      const name = document.getElementById('restaurant-name');
+      if(name.innerHTML == "") { 
+        fillRestaurantHTML();
+        fillBreadcrumb();
+        fillStaticMapHTML();
+        fetchReviews();
+      }
+      
     });
   }
 })();
@@ -75,19 +81,18 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 }
 
 fetchReviews = (restaurant = self.restaurant) => {
-  // DBHelper.fetchAndStore(DBHelper.OBJ_ST_REVIEWS, `/reviews/?restaurant_id=` + id, (error, jsonResponse) => {
   DBHelper.fetchReviewsData(restaurant.id, (error, responseReviews) => {
     if (!responseReviews) {
       console.error(error);
       return;
     }
-    // DBHelper.addToDB(reviews, DBHelper.DATABASE_OBJECT_STORE_REVIEWS);
     fillReviewsHTML(responseReviews);
   });
 }
 
 fillReviewsHTML = (reviews) => {
   const container = document.getElementById('reviews-container');
+  
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
@@ -95,6 +100,7 @@ fillReviewsHTML = (reviews) => {
     return;
   }
   const ul = document.getElementById('reviews-list');
+  ul.innerHTML = '';  //reset
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
@@ -132,7 +138,7 @@ createReviewHTML = (review) => {
   comments.innerHTML = review.comments;
   li.appendChild(comments);
   
-  // adding the Delete button (trash bin)
+  // add a Delete button - trash
   const btnDel = document.createElement('button');
   btnDel.setAttribute('aria-label', 'Delete the review');
   const trashIcon = document.createElement('i');
@@ -141,7 +147,7 @@ createReviewHTML = (review) => {
   btnDel.addEventListener("click", () => {
     if (confirm("Want to delete?")) {
       DBHelper.deleteReview(review.id);
-
+      
       li.parentNode.removeChild(li);
     }
   });
@@ -241,7 +247,7 @@ signinChanged = (val) => {  // true/false
 };
 
 userChanged = (user) => {
-  console.log('User now: ', user);
+  // console.log('User now: ', user);
   refreshUserValues();
 };
 
@@ -264,7 +270,7 @@ updateGoogleUser = () => {
 
 refreshUserValues = () => {
   if (auth2){
-    console.log('Refreshing values...');
+    // console.log('Refreshing values...');
     googleUser = auth2.currentUser.get(); 
     updateGoogleUser();
   } 

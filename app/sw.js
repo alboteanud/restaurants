@@ -5,7 +5,7 @@ if( 'function' === typeof importScripts) {
   
   // function onMessage(e) { 
   //   // do some work here 
-    console.log("onMessage() in sw.js")
+    // console.log("onMessage() in sw.js")
     if (workbox) {
       console.log(`Yay! Workbox is loaded 🎉`);
       
@@ -61,7 +61,9 @@ if( 'function' === typeof importScripts) {
       
     }
     
-    else { console.log(`Boo! Workbox didn't load 😬`); }
+    else { 
+      console.log(`Boo! Workbox didn't load 😬`);
+     }
     
   }
 // }

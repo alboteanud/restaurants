@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
   fetchNeighborhoods();
   fetchCuisines();
-  updateRestaurants();
 });
 
 // Fetch all neighborhoods and set their HTML.
@@ -16,6 +15,7 @@ fetchNeighborhoods = () => {
     } else {
       self.neighborhoods = neighborhoods;
       fillNeighborhoodsHTML();
+      if(self.cuisines){  updateRestaurants(); }
     }
   });
 }
@@ -37,6 +37,7 @@ fetchCuisines = () => {
     } else {
       self.cuisines = cuisines;
       fillCuisinesHTML();
+      if(self.neighborhoods){  updateRestaurants(); }
     }
   });
 }
@@ -75,7 +76,6 @@ updateRestaurants = () => {
 }      
 
 resetRestaurants = (restaurants) => {
-  console.log('resetRestaurants() in main.js');
   // Remove all restaurants
   self.restaurants = [];
   const ul = document.getElementById('restaurants-list');

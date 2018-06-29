@@ -12,7 +12,6 @@ class DBHelper {
   
   static addToDB(data, objStore) {
     if (!('indexedDB' in window)) {return null;}
-    console.log('data to be added to the store: ' + data.length);
     DBHelper.getObjStore(objStore, 'readwrite')
     .then((store) => { 
       Promise.all(data.map(aData => { 
@@ -53,16 +52,12 @@ static getObjStore(objName, mode) {
 
 static fetchRestaurantById(id, callback) {
   
-  var callbackDone = false;
-  // try get from DB
+  // get from DB
   DBHelper.getObjStore(DBHelper.OBJ_ST_RESTAURANTS, 'readonly')
   .then(store => store.get(parseInt(id)))
   .then (restaurant => {
-    if (restaurant && !callbackDone) {
-      callbackDone = true;
-      callback(null, restaurant);
-    }
-  })
+    if(restaurant) callback(null, restaurant);
+  });
   
   //  fetch from network
   const url = `${DBHelper.URL_SERVER}/restaurants/${id}`;
@@ -72,14 +67,8 @@ static fetchRestaurantById(id, callback) {
       response.status);
       return;
     }
-    response.json().then(jsonResult => {
-      if(!callbackDone){
-        callbackDone = true;
-        callback(null, jsonResult);
-      }
-      
-      DBHelper.addToDB(jsonResult, DBHelper.OBJ_ST_RESTAURANTS);
-    })
+    response.json().then(restaurant =>  callback(null, restaurant))    
+    // DBHelper.addToDB(jsonResult, DBHelper.OBJ_ST_RESTAURANTS);
   })
   .catch(error => callback(error, null));
 }
@@ -88,11 +77,11 @@ static fetchRestaurantById(id, callback) {
 static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) {
   var extraUrl = "?", searchCase = 0, callbackDone = false;
   
-  if(neighborhood != 'all') {
+  if(neighborhood && neighborhood != 'all') {
     extraUrl += ("neighborhood=" + neighborhood);
     searchCase += 1;
   }
-  if(cuisine != 'all') {
+  if(cuisine && cuisine != 'all') {
     extraUrl += ("&&cuisine_type=" + cuisine);
     searchCase += 2;
   } 
@@ -114,7 +103,7 @@ static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) 
     }
   })
   
-  //  fetch from network http://localhost:1337/restaurants/?neighborhood=Brooklyn&&cuisine_type=Pizza
+  //  try the network 
   const url = `${DBHelper.URL_SERVER}/restaurants/${extraUrl}`;
   fetch(url).then(function (response) {
     if (response.status !== 200) {
@@ -161,18 +150,11 @@ static fetchCuisines(callback) {
 }
 
 static fetchRestaurantData(extraUrl, callback) { 
-  var callbackDone = false;
   
   // get from DB
   DBHelper.getObjStore(DBHelper.OBJ_ST_RESTAURANTS, 'readonly')
-  .then(store => store.index('by-cuisine').getAllKeys())
-  .then(data => {
-    if (data && !callbackDone) {
-      console.log('callback from IDB');
-      callbackDone = true;
-      callback(null, data);
-    }
-  });
+  .then(store => store.getAll())
+  .then(restaurants => callback(null, restaurants));
   
   //  fetch from network
   const url = DBHelper.URL_SERVER + "/restaurants/" + extraUrl;
@@ -182,31 +164,22 @@ static fetchRestaurantData(extraUrl, callback) {
       response.status);
       return;
     }
-    response.json().then(jsonResult => {
-      if(!callbackDone){
-        callbackDone = true;
-        callback(null, jsonResult);
-      }
-      
-      DBHelper.addToDB(jsonResult, DBHelper.OBJ_ST_RESTAURANTS);
+    response.json().then(restaurants => {
+      callback(null, restaurants);
+      DBHelper.addToDB(restaurants, DBHelper.OBJ_ST_RESTAURANTS);
     })
   })
   .catch(error => callback(error, null));
 }
 
-
 static fetchReviewsData(restaurantID, callback) {
-  var callbackDone = false;
   
   // get from DB
   DBHelper.getObjStore(DBHelper.OBJ_ST_REVIEWS, 'readonly')
-  .then(store => store.index('by-restaurant').getAllKeys(restaurantID))
-  .then(data => {
-    if (data && !callbackDone) {
-      callbackDone = true;
-      callback(null, data)
-    }
-  });
+  .then(store => store.index('by-restaurant').getAll(restaurantID))
+  .then(reviews => {
+    if(reviews) callback(null, reviews);
+  })
   
   //  fetch from network
   const url = this.URL_SERVER + "/reviews/?restaurant_id=" + restaurantID;
@@ -216,13 +189,11 @@ static fetchReviewsData(restaurantID, callback) {
       response.status);
       return;
     }
-    response.json().then(jsonResult => {
-      if(!callbackDone){
-        callbackDone = true;
-        callback(null, jsonResult);
+    response.json().then(reviews => {
+      if(reviews){
+        DBHelper.addToDB(reviews, DBHelper.OBJ_ST_REVIEWS);
+        callback(null, reviews);
       }
-      
-      DBHelper.addToDB(jsonResult, DBHelper.OBJ_ST_REVIEWS);
     })
   })
   .catch(error => callback(error, null));
@@ -249,8 +220,7 @@ static getParameterByName(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-// we can request a max 640px map for the free Gmaps account
-// but scale=2 will bring a 1280px img
+// we can request a max 1280px map for the free Gmaps account (using scale=2) 
 static getUrlMapStatic(refW, urlStaticMap) {
   var scale = 1;
   var reqPictureWidth = refW;
@@ -261,7 +231,7 @@ static getUrlMapStatic(refW, urlStaticMap) {
   }
   
   const urlImgMap = urlStaticMap + "&size=" + reqPictureWidth + "x120&scale=" + scale;
-  console.log("url static map: " + urlImgMap);
+  // console.log("url static map: " + urlImgMap);
   return urlImgMap;
 }
 

@@ -80,13 +80,13 @@ p {
 
 #restaurants-list li {
   background-color: #fff;
-  /* border: 2px solid #ccc; */
   border-radius: 3px;
   font-family: Arial, sans-serif;
   text-align: center;
   overflow: hidden;
   position: relative;
   padding-bottom: 8px;
+  min-width: 300px;
 }
 
 #restaurants-list li h2 {
@@ -109,7 +109,7 @@ p {
 
 .fade-in {
   animation-name: fadeIn;
-  animation-duration: 1.5s;
+  animation-duration: 0.8s;
   animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
   animation-fill-mode: forwards;
 }
@@ -123,7 +123,7 @@ p {
 }
 .centered {
   display:block;
-  margin:0 auto;
+  margin:0;
   width: 100%;
 }
 
