@@ -20,7 +20,6 @@ class DBHelper {
       }
     )
   );
-  // debugger;
 }
 )
 .catch(e => console.log(e))
@@ -55,7 +54,7 @@ static getObjStore(objName, mode) {
 static fetchRestaurantById(id, callback) {
   
   var callbackDone = false;
-  // get from DB
+  // try get from DB
   DBHelper.getObjStore(DBHelper.OBJ_ST_RESTAURANTS, 'readonly')
   .then(store => store.get(parseInt(id)))
   .then (restaurant => {
@@ -85,7 +84,7 @@ static fetchRestaurantById(id, callback) {
   .catch(error => callback(error, null));
 }
 
-// http://localhost:1337/restaurants/?neighborhood=Brooklyn&&cuisine_type=Pizza
+
 static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) {
   var extraUrl = "?", searchCase = 0, callbackDone = false;
   
@@ -115,7 +114,7 @@ static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) 
     }
   })
   
-  //  fetch from network
+  //  fetch from network http://localhost:1337/restaurants/?neighborhood=Brooklyn&&cuisine_type=Pizza
   const url = `${DBHelper.URL_SERVER}/restaurants/${extraUrl}`;
   fetch(url).then(function (response) {
     if (response.status !== 200) {
@@ -251,7 +250,7 @@ static getParameterByName(name, url) {
 }
 
 // we can request a max 640px map for the free Gmaps account
-// but we can ask scale = 2 ==> 1280px 
+// but scale=2 will bring a 1280px img
 static getUrlMapStatic(refW, urlStaticMap) {
   var scale = 1;
   var reqPictureWidth = refW;
@@ -283,8 +282,6 @@ static getMapMarkerForRestaurant(restaurant, map) {
     url: `./restaurant.html?id=${restaurant.id}`,
     map: map,
     animation: google.maps.Animation.DROP,
-    // icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" 
-    // + restaurant.color.replace("#","")
     icon: DBHelper.getPinSymbol(restaurant.color),
   }, );
   return marker;
