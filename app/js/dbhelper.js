@@ -178,7 +178,9 @@ static fetchReviewsData(restaurantID, callback) {
   DBHelper.getObjStore(DBHelper.OBJ_ST_REVIEWS, 'readonly')
   .then(store => store.index('by-restaurant').getAll(restaurantID))
   .then(reviews => {
-    if(reviews) callback(null, reviews);
+    if(reviews) {
+      callback(null, reviews);
+    }
   })
   
   //  fetch from network
@@ -191,8 +193,9 @@ static fetchReviewsData(restaurantID, callback) {
     }
     response.json().then(reviews => {
       if(reviews){
-        DBHelper.addToDB(reviews, DBHelper.OBJ_ST_REVIEWS);
         callback(null, reviews);
+        DBHelper.addToDB(reviews, DBHelper.OBJ_ST_REVIEWS);
+       
       }
     })
   })

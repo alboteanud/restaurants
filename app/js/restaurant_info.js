@@ -24,6 +24,7 @@ var auth2, googleUser, restaurant, map;
         fetchReviews();
       }
       
+      
     });
   }
 })();
@@ -39,11 +40,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const sourceWebp = document.createElement('source');
   sourceWebp.type = "image/webp";
   sourceWebp.srcset = DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_WEBP);
-  sourceWebp.media = "(min-width: 500px)";
-  
-  const source = document.createElement('source');
-  source.media = "(min-width: 500px)";
-  source.srcset = DBHelper.getImageUrlForRestaurant(restaurant.photograph, DBHelper.TYPE_IMG_NORMAL);
+  sourceWebp.media = "(min-width: 300px)";
   
   const image = document.createElement('img');
   image.className = 'restaurant-img';
@@ -52,7 +49,6 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   
   const picture = document.getElementById('restaurant-pic');
   picture.append(sourceWebp);
-  picture.append(source);
   picture.append(image);
   
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -82,7 +78,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 
 fetchReviews = (restaurant = self.restaurant) => {
   DBHelper.fetchReviewsData(restaurant.id, (error, responseReviews) => {
-    if (!responseReviews) {
+    if (error) {
       console.error(error);
       return;
     }
@@ -91,20 +87,11 @@ fetchReviews = (restaurant = self.restaurant) => {
 }
 
 fillReviewsHTML = (reviews) => {
-  const container = document.getElementById('reviews-container');
-  
-  if (!reviews) {
-    const noReviews = document.createElement('p');
-    noReviews.innerHTML = 'No reviews yet!';
-    container.appendChild(noReviews);
-    return;
-  }
+  if (!reviews || reviews.length == 0) { return;  }
   const ul = document.getElementById('reviews-list');
-  ul.innerHTML = '';  //reset
-  reviews.forEach(review => {
-    ul.appendChild(createReviewHTML(review));
-  });
-  container.appendChild(ul);
+  ul.innerHTML = ''; 
+  reviews.forEach(review => ul.appendChild(createReviewHTML(review)));
+  document.getElementById('reviews-container').appendChild(ul);
 }
 
 createReviewHTML = (review) => {
@@ -183,12 +170,11 @@ addAndPostEvent = (e) => {
     email: googleUser.getBasicProfile().getEmail(),
     rating: document.getElementById("myForm").elements.namedItem("rating-input-1").value,
     comments: document.getElementById('comment').value,
-    createdAt: Date.now(),  // this should have been done by server but will not be a timestamp but a date-time
+    createdAt: Date.now(),  // should have been done by server
     updatedAt: Date.now()
   };
   
   updateUI(reviewData);
-  // DBHelper.addToDB([reviewData], DBHelper.OBJ_ST_REVIEWS); // need review_id
   const headers = new Headers({'Content-Type': 'application/json'});
   const body = JSON.stringify(reviewData);
   return fetch(DBHelper.URL_SERVER + '/reviews/', {method: 'POST', headers: headers, body: body});
